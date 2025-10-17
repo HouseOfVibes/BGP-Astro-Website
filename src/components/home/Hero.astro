@@ -4,46 +4,237 @@
 ---
 
 <section
-  class="bgp-hero bg-black w-full min-h-screen flex items-center text-center px-5 pt-[90px] pb-5"
+  class="bgp-hero bg-black w-full min-h-screen flex items-center justify-center text-center px-[5%] py-[120px] relative overflow-hidden"
 >
-  <div class="max-w-[1200px] mx-auto w-full">
+  <!-- Black overlay for better text contrast -->
+  <div class="hero-overlay absolute inset-0 bg-black/70 z-0"></div>
+
+  <!-- Decorative accent line -->
+  <div class="hero-accent absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#9c8040] to-transparent opacity-60 z-[1]"></div>
+
+  <div class="hero-content-wrapper w-full max-w-[1400px] mx-auto relative z-10">
+    <div class="w-full flex flex-col items-center justify-center py-8">
+    <!-- Animated tagline above main heading -->
+    <div class="hero-tagline mb-8 opacity-0 animate-fade-in-down">
+      <span class="inline-block text-[#9c8040] font-semibold tracking-[0.2em] uppercase text-base md:text-lg">
+        Welcome
+      </span>
+    </div>
+
+    <!-- Main Heading -->
     <h1
-      class="text-white font-bold mb-4 leading-tight"
-      style="font-size: clamp(2rem, 5vw, 4rem);"
+      class="text-white font-bold mb-8 leading-tight opacity-0 animate-fade-in-up animation-delay-300 text-center"
+      style="font-size: clamp(3rem, 7vw, 5.5rem); letter-spacing: -0.02em;"
     >
-      A Place to Belong, Believe, and Become
+      A Place to <span class="text-[#9c8040]">Belong</span>,<br class="hidden sm:inline" />
+      <span class="text-[#9c8040]">Believe</span>, and <span class="text-[#9c8040]">Become</span>
     </h1>
 
+    <!-- Decorative divider -->
+    <div class="hero-divider w-32 h-1 bg-[#9c8040] mx-auto mb-8 opacity-0 animate-fade-in animation-delay-600"></div>
+
+    <!-- Subtitle -->
     <p
-      class="text-white mb-8 leading-relaxed"
-      style="font-size: clamp(1rem, 2.5vw, 1.5rem);"
+      class="text-white/90 mb-12 leading-relaxed max-w-[800px] mx-auto opacity-0 animate-fade-in-up animation-delay-900 text-center"
+      style="font-size: clamp(1.25rem, 3vw, 1.75rem);"
     >
       Join our community where faith grows, love thrives, and lives are transformed.
     </p>
 
-    <a
-      href="#service-info"
-      class="inline-block bg-[#9c8040] hover:bg-[#b89654] text-white px-6 py-3 rounded font-semibold border-2 border-[#9c8040] hover:border-[#b89654] transition-colors duration-300"
-      style="font-size: clamp(0.9rem, 2vw, 1rem);"
-    >
-      PLAN YOUR VISIT
+    <!-- Call to Action Button -->
+    <div class="opacity-0 animate-fade-in-up animation-delay-1200 flex justify-center w-full">
+      <a
+        href="#service-info"
+        class="hero-cta inline-flex items-center justify-center gap-3 bg-[#9c8040] hover:bg-[#b89654] text-white px-10 py-5 rounded-lg font-bold shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+        style="font-size: clamp(1.1rem, 2.5vw, 1.3rem); letter-spacing: 0.05em;"
+      >
+        PLAN YOUR VISIT
+        <svg class="w-6 h-6 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </a>
+    </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator - positioned relative to section, not content -->
+  <div class="hero-scroll absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0 animate-bounce-fade animation-delay-1500 z-20">
+    <a href="#service-info" class="flex flex-col items-center gap-2 text-white/70 hover:text-white transition-colors">
+      <span class="text-xs uppercase tracking-wider">Scroll</span>
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </svg>
     </a>
   </div>
 </section>
 
 <style>
-  /* Hero background with gradient overlay */
+  /* Hero background with enhanced gradient overlay */
   .bgp-hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('/images/home/BGP-BlackWhite-HomePage-hero-background.png');
+    background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('/images/home/BGP-BlackWhite-HomePage-hero-background.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
   }
 
   /* Mobile background image */
   @media (max-width: 768px) {
     .bgp-hero {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('/images/home/BGP-BlackWhite-HomePage-hero-background-mobile.png');
+      background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('/images/home/BGP-BlackWhite-HomePage-hero-background-mobile.png');
+      background-attachment: scroll;
+    }
+  }
+
+  /* Animation Keyframes */
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes bounceFade {
+    0%, 100% {
+      opacity: 0.5;
+      transform: translateY(0);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(-10px);
+    }
+  }
+
+  /* Animation Classes */
+  .animate-fade-in-down {
+    animation: fadeInDown 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .animate-bounce-fade {
+    animation: bounceFade 2s ease-in-out infinite;
+  }
+
+  /* Animation Delays */
+  .animation-delay-300 {
+    animation-delay: 0.3s;
+  }
+
+  .animation-delay-600 {
+    animation-delay: 0.6s;
+  }
+
+  .animation-delay-900 {
+    animation-delay: 0.9s;
+  }
+
+  .animation-delay-1200 {
+    animation-delay: 1.2s;
+  }
+
+  .animation-delay-1500 {
+    animation-delay: 1.5s;
+  }
+
+  /* Enhanced hover effect for CTA button */
+  .hero-cta {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+  }
+
+  .hero-cta:hover::before {
+    left: 100%;
+  }
+
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Mobile optimizations */
+  @media (max-width: 640px) {
+    .bgp-hero {
+      min-height: 100vh;
+      padding-top: 80px;
+      padding-bottom: 40px;
+    }
+
+    .hero-tagline {
+      margin-bottom: 1rem;
+    }
+
+    .hero-divider {
+      width: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-scroll {
+      display: none;
+    }
+
+    /* Reduce spacing between elements on mobile */
+    .hero-content-wrapper h1 {
+      margin-bottom: 1.5rem !important;
+    }
+
+    .hero-content-wrapper p {
+      margin-bottom: 2rem !important;
+    }
+
+    .hero-content-wrapper .py-8 {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+  }
+
+  /* Tablet optimizations */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .bgp-hero {
+      min-height: 100vh;
+      padding-top: 100px;
+      padding-bottom: 60px;
     }
   }
 </style>
