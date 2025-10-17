@@ -34,3 +34,9 @@ coverage/
 
 # Type checking cache
 *.tsbuildinfo
+
+# Large media files
+Website-Media/Videos/
+Website-Media/Current-website-pages-screenshot/
+*.mp4
+*.mov
