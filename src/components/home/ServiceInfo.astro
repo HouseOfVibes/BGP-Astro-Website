@@ -1,0 +1,81 @@
+---
+// BGP Service Information Section
+// Three columns: Service Times, Location, What to Expect
+---
+
+<section id="service-info" class="service-info-section py-20 px-[5%] bg-white relative">
+  <!-- Subtle background pattern -->
+  <div class="absolute inset-0 opacity-40 pointer-events-none" style="background-image: url(&quot;data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f5f5f5' fill-opacity='0.4' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E&quot;);"></div>
+
+  <div class="service-container max-w-[1200px] mx-auto flex justify-between gap-8 relative z-10 flex-wrap lg:flex-nowrap">
+    <!-- Column 1 - Service Times -->
+    <div class="service-column w-full lg:w-[30%] p-8 bg-white rounded-lg shadow-[0_5px_15px_rgba(0,0,0,0.05)] text-center transition-transform duration-300 hover:-translate-y-1">
+      <div class="service-icon text-[40px] text-[#9c8040] mb-5">
+        <i class="fas fa-clock"></i>
+      </div>
+      <h3 class="service-title text-2xl font-semibold text-[#212121] mb-4">
+        Sunday Service
+      </h3>
+      <p class="service-time text-lg font-medium mb-2 text-black">
+        12:30 PM
+      </p>
+      <p class="service-description text-base leading-relaxed text-[#616161] mb-2">
+        Join us for worship and the Word
+      </p>
+    </div>
+
+    <!-- Column 2 - Location -->
+    <div class="service-column w-full lg:w-[30%] p-8 bg-white rounded-lg shadow-[0_5px_15px_rgba(0,0,0,0.05)] text-center transition-transform duration-300 hover:-translate-y-1">
+      <div class="service-icon text-[40px] text-[#9c8040] mb-5">
+        <i class="fas fa-map-marker-alt"></i>
+      </div>
+      <h3 class="service-title text-2xl font-semibold text-[#212121] mb-4">
+        Our Location
+      </h3>
+      <p class="service-address text-lg font-medium mb-2 text-black">
+        5101 Rolesville Road, Wendell, NC
+      </p>
+      <p class="service-description text-base leading-relaxed text-[#616161] mb-2">
+        Follow signs for parking
+      </p>
+    </div>
+
+    <!-- Column 3 - What to Expect -->
+    <div class="service-column w-full lg:w-[30%] p-8 bg-white rounded-lg shadow-[0_5px_15px_rgba(0,0,0,0.05)] text-center transition-transform duration-300 hover:-translate-y-1">
+      <div class="service-icon text-[40px] text-[#9c8040] mb-5">
+        <i class="fas fa-heart"></i>
+      </div>
+      <h3 class="service-title text-2xl font-semibold text-[#212121] mb-4">
+        What to Expect
+      </h3>
+      <p class="service-description text-base leading-relaxed text-[#616161] mb-2">
+        Warm welcome, contemporary worship, and biblical teaching
+      </p>
+      <p class="service-note text-sm text-[#9c8040] font-medium">
+        Casual attire welcome
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Responsive adjustments for tablets */
+  @media (max-width: 992px) and (min-width: 769px) {
+    .service-column {
+      width: 45%;
+    }
+  }
+
+  /* Mobile optimization */
+  @media (max-width: 768px) {
+    .service-info-section {
+      padding: 50px 5%;
+    }
+
+    .service-column {
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+</style>

@@ -1,0 +1,95 @@
+---
+// BGP Connect With Us Section
+// Newsletter signup, service info, and contact CTA
+---
+
+<section class="bgp-contact-section py-20 px-[5%] bg-[#f8f8f8]" id="contact">
+  <div class="bgp-contact-container max-w-[1200px] mx-auto">
+    <h2 class="bgp-section-title text-center text-4xl font-bold text-[#212121] mb-12 font-['Poppins']">
+      Connect With Us
+    </h2>
+
+    <!-- Newsletter Signup -->
+    <div class="bgp-newsletter mb-12">
+      <div class="bgp-newsletter-box max-w-[600px] mx-auto bg-white p-8 rounded-lg shadow-[0_5px_15px_rgba(0,0,0,0.1)] text-center">
+        <h3 class="text-2xl font-semibold text-[#212121] mb-3">
+          Newsletter Sign Up
+        </h3>
+        <p class="text-[#666] mb-6">
+          Stay connected with BGP updates and announcements
+        </p>
+        <form
+          action="https://formsubmit.co/newsletter@bgpnc.com"
+          method="POST"
+          class="flex flex-col sm:flex-row gap-3"
+        >
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://bgpnc.com/thank-you" />
+          <input
+            type="email"
+            name="email"
+            placeholder="Your email"
+            required
+            class="flex-1 px-4 py-3 border border-[#ddd] rounded focus:outline-none focus:border-[#9c8040] text-base"
+          />
+          <button
+            type="submit"
+            class="bg-[#9c8040] text-white px-8 py-3 rounded font-semibold hover:bg-[#b89654] transition-colors duration-300 whitespace-nowrap"
+          >
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Info Boxes -->
+    <div class="bgp-contact-info flex flex-wrap justify-center items-center gap-6">
+      <!-- Service Time Box -->
+      <div class="bgp-info-box flex items-center gap-4 bg-white px-6 py-4 rounded-lg shadow-[0_3px_10px_rgba(0,0,0,0.08)] min-w-[250px]">
+        <i class="fas fa-clock text-3xl text-[#9c8040]"></i>
+        <div>
+          <strong class="block text-[#212121] mb-1">Service Time</strong>
+          <p class="text-[#666] text-sm m-0">Sundays at 12:30 PM</p>
+        </div>
+      </div>
+
+      <!-- Location Box -->
+      <div class="bgp-info-box flex items-center gap-4 bg-white px-6 py-4 rounded-lg shadow-[0_3px_10px_rgba(0,0,0,0.08)] min-w-[250px]">
+        <i class="fas fa-map-marker-alt text-3xl text-[#9c8040]"></i>
+        <div>
+          <strong class="block text-[#212121] mb-1">Location</strong>
+          <p class="text-[#666] text-sm m-0">East Wake High School, Wendell</p>
+        </div>
+      </div>
+
+      <!-- Contact Button -->
+      <div class="bgp-contact-button">
+        <a
+          href="/contact"
+          class="inline-block bg-[#9c8040] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#b89654] transition-colors duration-300 no-underline"
+        >
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
+    .bgp-contact-info {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .bgp-info-box {
+      min-width: auto;
+      width: 100%;
+    }
+
+    .bgp-newsletter-box {
+      padding: 30px 20px;
+    }
+  }
+</style>

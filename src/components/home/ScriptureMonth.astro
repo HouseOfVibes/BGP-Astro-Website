@@ -1,0 +1,109 @@
+---
+// BGP Scripture of the Month Section
+// Monthly scripture verse with decorative presentation
+
+interface Props {
+  month?: string;
+  year?: string;
+  verse: string;
+  reference: string;
+}
+
+const {
+  month = "October",
+  year = "2025",
+  verse = "For God has not given us a spirit of fear, but of power and of love and of a sound mind.",
+  reference = "II Timothy 1:7 NKJV"
+} = Astro.props;
+---
+
+<section id="scripture-month" class="scripture-section py-[100px] px-[5%] bg-white relative overflow-hidden">
+  <!-- Gold overlay background -->
+  <div class="absolute inset-0 z-[1] bg-gradient-to-br from-[rgba(156,128,64,0.03)] via-[rgba(156,128,64,0.01)] to-[rgba(156,128,64,0.03)]"></div>
+
+  <div class="scripture-container max-w-[900px] mx-auto relative z-[2] text-center">
+    <!-- EDIT THIS PART MONTHLY -->
+    <div class="scripture-content">
+      <!-- Top Divider -->
+      <div class="section-divider w-20 h-0.5 mx-auto mb-8 bg-gradient-to-r from-transparent via-[#9c8040] to-transparent"></div>
+
+      <!-- Title -->
+      <h2 class="scripture-title font-['Poppins'] text-4xl font-bold text-[#212121] mb-4 relative after:content-[''] after:absolute after:bottom-[-8px] after:left-1/2 after:-translate-x-1/2 after:w-10 after:h-0.5 after:bg-[#9c8040]">
+        Scripture of the Month
+      </h2>
+
+      <!-- Date -->
+      <div class="scripture-date text-lg text-[#9c8040] mb-[50px] font-medium tracking-wide">
+        {month} {year}
+      </div>
+
+      <!-- Scripture Text Container -->
+      <div class="scripture-text-container bg-white py-[50px] px-[50px] rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-[#9c8040] relative mx-5">
+        <!-- Opening Quote Mark -->
+        <div class="quote-marks opening-quote absolute top-[10px] left-5 font-['Georgia',serif] text-[80px] text-[#9c8040] opacity-30 leading-none">
+          "
+        </div>
+
+        <!-- Closing Quote Mark -->
+        <div class="quote-marks closing-quote absolute bottom-[10px] right-5 font-['Georgia',serif] text-[80px] text-[#9c8040] opacity-30 leading-none">
+          "
+        </div>
+
+        <!-- Scripture Verse -->
+        <div class="scripture-text text-[26px] leading-[1.8] mb-8 text-[#212121] font-['Roboto'] font-normal px-8 relative z-[3]">
+          "{verse}"
+        </div>
+
+        <!-- Scripture Reference -->
+        <div class="scripture-reference text-lg font-semibold text-[#9c8040] font-['Poppins'] relative z-[3] before:content-['—_'] before:text-[#9c8040]">
+          {reference}
+        </div>
+      </div>
+
+      <!-- Bottom Divider -->
+      <div class="section-divider w-20 h-0.5 mx-auto mt-8 bg-gradient-to-r from-transparent via-[#9c8040] to-transparent"></div>
+    </div>
+    <!-- END EDIT SECTION -->
+  </div>
+</section>
+
+<style>
+  /* Mobile responsive adjustments */
+  @media (max-width: 768px) {
+    .scripture-section {
+      padding: 60px 5%;
+    }
+
+    .scripture-title {
+      font-size: 28px;
+    }
+
+    .scripture-text {
+      font-size: 22px;
+      padding: 0 15px;
+    }
+
+    .scripture-text-container {
+      padding: 40px 25px;
+      margin: 0 10px;
+    }
+
+    .quote-marks {
+      font-size: 60px;
+    }
+
+    .opening-quote {
+      top: 5px;
+      left: 10px;
+    }
+
+    .closing-quote {
+      bottom: 5px;
+      right: 10px;
+    }
+
+    .scripture-reference {
+      font-size: 16px;
+    }
+  }
+</style>

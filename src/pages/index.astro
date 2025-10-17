@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/home/Hero.astro';
+import ServiceInfo from '../components/home/ServiceInfo.astro';
+import ScriptureMonth from '../components/home/ScriptureMonth.astro';
+import Values from '../components/home/Values.astro';
+import Leadership from '../components/home/Leadership.astro';
+import ConnectWithUs from '../components/home/ConnectWithUs.astro';
+
+const seoData = {
+  title: "Believer's Gathering Place - A Place to Belong, Believe, and Become",
+  description: "Join our community where faith grows, love thrives, and lives are transformed. Sunday services at 12:30 PM in Wendell, NC.",
+  image: "/images/bgp-og-image.jpg",
+};
+---
+
+<Layout {...seoData}>
+  <!-- Hero Section -->
+  <Hero />
+
+  <!-- Service Information Section -->
+  <ServiceInfo />
+
+  <!-- Scripture of the Month Section -->
+  <ScriptureMonth
+    month="October"
+    year="2025"
+    verse="For God has not given us a spirit of fear, but of power and of love and of a sound mind."
+    reference="II Timothy 1:7 NKJV"
+  />
+
+  <!-- Our Values Section -->
+  <Values />
+
+  <!-- Leadership Section -->
+  <Leadership />
+
+  <!-- Connect With Us Section -->
+  <ConnectWithUs />
+</Layout>
