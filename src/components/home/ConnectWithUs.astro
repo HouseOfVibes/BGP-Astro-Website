@@ -1,95 +1,219 @@
 ---
-// BGP Connect With Us Section
-// Newsletter signup, service info, and contact CTA
+// Connect With Us / Newsletter Signup Component
 ---
 
-<section class="bgp-contact-section py-20 px-[5%] bg-[#f8f8f8]" id="contact">
-  <div class="bgp-contact-container max-w-[1200px] mx-auto">
-    <h2 class="bgp-section-title text-center text-4xl font-bold text-[#212121] mb-12 font-['Poppins']">
-      Connect With Us
-    </h2>
+<section class="connect-section" id="connect">
+  <div class="connect-container">
+    <div class="connect-content fade-in-up">
+      <h2 class="connect-title">
+        Newsletter Sign Up
+      </h2>
+      <p class="connect-subtitle">
+        Stay connected with BGP updates and announcements
+      </p>
 
-    <!-- Newsletter Signup -->
-    <div class="bgp-newsletter mb-12">
-      <div class="bgp-newsletter-box max-w-[600px] mx-auto bg-white p-8 rounded-lg shadow-[0_5px_15px_rgba(0,0,0,0.1)] text-center">
-        <h3 class="text-2xl font-semibold text-[#212121] mb-3">
-          Newsletter Sign Up
-        </h3>
-        <p class="text-[#666] mb-6">
-          Stay connected with BGP updates and announcements
-        </p>
-        <form
-          action="https://formsubmit.co/newsletter@bgpnc.com"
-          method="POST"
-          class="flex flex-col sm:flex-row gap-3"
-        >
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_next" value="https://bgpnc.com/thank-you" />
+      <form
+        action="https://formsubmit.co/newsletter@bgpnc.com"
+        method="POST"
+        class="newsletter-form"
+      >
+        <!-- Honeypot -->
+        <input type="text" name="_honey" style="display:none">
+
+        <!-- Disable Captcha -->
+        <input type="hidden" name="_captcha" value="false">
+
+        <!-- Success Page -->
+        <input type="hidden" name="_next" value="https://bgpnc.com/newsletter-thank-you">
+
+        <!-- Subject -->
+        <input type="hidden" name="_subject" value="New Newsletter Signup - BGP">
+
+        <div class="form-wrapper">
           <input
             type="email"
             name="email"
-            placeholder="Your email"
             required
-            class="flex-1 px-4 py-3 border border-[#ddd] rounded focus:outline-none focus:border-[#9c8040] text-base"
+            class="email-input"
+            placeholder="Enter your email"
           />
           <button
             type="submit"
-            class="bg-[#9c8040] text-white px-8 py-3 rounded font-semibold hover:bg-[#b89654] transition-colors duration-300 whitespace-nowrap"
+            class="submit-button"
           >
             Subscribe
           </button>
-        </form>
-      </div>
-    </div>
-
-    <!-- Info Boxes -->
-    <div class="bgp-contact-info flex flex-wrap justify-center items-center gap-6">
-      <!-- Service Time Box -->
-      <div class="bgp-info-box flex items-center gap-4 bg-white px-6 py-4 rounded-lg shadow-[0_3px_10px_rgba(0,0,0,0.08)] min-w-[250px]">
-        <i class="fas fa-clock text-3xl text-[#9c8040]"></i>
-        <div>
-          <strong class="block text-[#212121] mb-1">Service Time</strong>
-          <p class="text-[#666] text-sm m-0">Sundays at 12:30 PM</p>
         </div>
-      </div>
+      </form>
 
-      <!-- Location Box -->
-      <div class="bgp-info-box flex items-center gap-4 bg-white px-6 py-4 rounded-lg shadow-[0_3px_10px_rgba(0,0,0,0.08)] min-w-[250px]">
-        <i class="fas fa-map-marker-alt text-3xl text-[#9c8040]"></i>
-        <div>
-          <strong class="block text-[#212121] mb-1">Location</strong>
-          <p class="text-[#666] text-sm m-0">East Wake High School, Wendell</p>
+      <!-- Social Media Section -->
+      <div class="social-section">
+        <h3 class="social-title">
+          Follow Us
+        </h3>
+        <div class="social-buttons">
+          <a
+            href="https://www.facebook.com/BGPWendellNC"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-button"
+            aria-label="Facebook"
+          >
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/bgpwendellnc"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-button"
+            aria-label="Instagram"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a
+            href="https://www.tiktok.com/@bgpwendellnc"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-button"
+            aria-label="TikTok"
+          >
+            <i class="fab fa-tiktok"></i>
+          </a>
         </div>
-      </div>
-
-      <!-- Contact Button -->
-      <div class="bgp-contact-button">
-        <a
-          href="/contact"
-          class="inline-block bg-[#9c8040] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#b89654] transition-colors duration-300 no-underline"
-        >
-          Contact Us
-        </a>
       </div>
     </div>
   </div>
 </section>
 
 <style>
-  /* Mobile adjustments */
-  @media (max-width: 768px) {
-    .bgp-contact-info {
-      flex-direction: column;
-      align-items: stretch;
-    }
+  .connect-section {
+    padding: 6rem 1.5rem 5rem;
+    background-color: white;
+    border-top: 1px solid #e5e7eb;
+  }
 
-    .bgp-info-box {
-      min-width: auto;
+  .connect-container {
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+
+  .connect-content {
+    text-align: center;
+  }
+
+  .connect-title {
+    font-family: var(--font-family-secondary);
+    font-size: clamp(1.875rem, 4vw, 2.25rem);
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    margin-bottom: 1rem;
+  }
+
+  .connect-subtitle {
+    color: var(--color-text-dark);
+    font-size: 1.125rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .newsletter-form {
+    margin-bottom: 3rem;
+  }
+
+  .form-wrapper {
+    display: flex;
+    gap: 0.75rem;
+    max-width: 32rem;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 640px) {
+    .form-wrapper {
+      flex-direction: column;
+    }
+  }
+
+  .email-input {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none;
+  }
+
+  .email-input:focus {
+    border-color: var(--color-teal-mid);
+    box-shadow: 0 0 0 3px rgba(45, 115, 115, 0.2);
+  }
+
+  .submit-button {
+    background-color: var(--color-gold);
+    color: white;
+    font-family: var(--font-family-secondary);
+    font-weight: 600;
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 15px -3px rgba(156, 128, 64, 0.3);
+    white-space: nowrap;
+  }
+
+  .submit-button:hover {
+    background-color: var(--color-gold-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 15px 25px -5px rgba(156, 128, 64, 0.4);
+  }
+
+  @media (max-width: 640px) {
+    .submit-button {
       width: 100%;
     }
+  }
 
-    .bgp-newsletter-box {
-      padding: 30px 20px;
-    }
+  /* Social Media Section */
+  .social-section {
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  .social-title {
+    font-family: var(--font-family-secondary);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-primary-dark);
+    margin-bottom: 1.5rem;
+  }
+
+  .social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .social-button {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: var(--color-primary-dark);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+
+  .social-button:hover {
+    background-color: var(--color-teal-mid);
+    transform: scale(1.1);
+  }
+
+  .social-button i {
+    font-size: 1.25rem;
   }
 </style>

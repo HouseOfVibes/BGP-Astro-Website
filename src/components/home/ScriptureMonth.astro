@@ -1,109 +1,157 @@
 ---
-// BGP Scripture of the Month Section
-// Monthly scripture verse with decorative presentation
-
-interface Props {
-  month?: string;
-  year?: string;
-  verse: string;
-  reference: string;
-}
-
-const {
-  month = "October",
-  year = "2025",
-  verse = "For God has not given us a spirit of fear, but of power and of love and of a sound mind.",
-  reference = "II Timothy 1:7 NKJV"
-} = Astro.props;
+// Scripture of the Month Component
+const currentDate = new Date();
+const currentMonth = currentDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 ---
 
-<section id="scripture-month" class="scripture-section py-[100px] px-[5%] bg-white relative overflow-hidden">
-  <!-- Gold overlay background -->
-  <div class="absolute inset-0 z-[1] bg-gradient-to-br from-[rgba(156,128,64,0.03)] via-[rgba(156,128,64,0.01)] to-[rgba(156,128,64,0.03)]"></div>
+<section class="scripture-section">
+  <!-- Decorative Background Elements -->
+  <div class="bg-decorations">
+    <div class="decoration-circle decoration-top"></div>
+    <div class="decoration-circle decoration-bottom"></div>
+  </div>
 
-  <div class="scripture-container max-w-[900px] mx-auto relative z-[2] text-center">
-    <!-- EDIT THIS PART MONTHLY -->
-    <div class="scripture-content">
-      <!-- Top Divider -->
-      <div class="section-divider w-20 h-0.5 mx-auto mb-8 bg-gradient-to-r from-transparent via-[#9c8040] to-transparent"></div>
-
-      <!-- Title -->
-      <h2 class="scripture-title font-['Poppins'] text-4xl font-bold text-[#212121] mb-4 relative after:content-[''] after:absolute after:bottom-[-8px] after:left-1/2 after:-translate-x-1/2 after:w-10 after:h-0.5 after:bg-[#9c8040]">
-        Scripture of the Month
-      </h2>
-
-      <!-- Date -->
-      <div class="scripture-date text-lg text-[#9c8040] mb-[50px] font-medium tracking-wide">
-        {month} {year}
+  <div class="scripture-container">
+    <div class="scripture-content fade-in-up">
+      <!-- Badge -->
+      <div class="badge-wrapper">
+        <span class="badge">
+          Scripture of the Month
+        </span>
       </div>
 
-      <!-- Scripture Text Container -->
-      <div class="scripture-text-container bg-white py-[50px] px-[50px] rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-[#9c8040] relative mx-5">
-        <!-- Opening Quote Mark -->
-        <div class="quote-marks opening-quote absolute top-[10px] left-5 font-['Georgia',serif] text-[80px] text-[#9c8040] opacity-30 leading-none">
-          "
-        </div>
+      <!-- Month -->
+      <p class="month-text">
+        {currentMonth}
+      </p>
 
-        <!-- Closing Quote Mark -->
-        <div class="quote-marks closing-quote absolute bottom-[10px] right-5 font-['Georgia',serif] text-[80px] text-[#9c8040] opacity-30 leading-none">
-          "
-        </div>
+      <!-- Scripture Verse -->
+      <div class="verse-wrapper">
+        <blockquote class="verse-text">
+          "For God has not given us a spirit of <span class="highlight">fear</span>,
+          but of <span class="highlight">power</span> and of
+          <span class="highlight">love</span> and of a
+          <span class="highlight">sound mind</span>."
+        </blockquote>
 
-        <!-- Scripture Verse -->
-        <div class="scripture-text text-[26px] leading-[1.8] mb-8 text-[#212121] font-['Roboto'] font-normal px-8 relative z-[3]">
-          "{verse}"
-        </div>
-
-        <!-- Scripture Reference -->
-        <div class="scripture-reference text-lg font-semibold text-[#9c8040] font-['Poppins'] relative z-[3] before:content-['—_'] before:text-[#9c8040]">
-          {reference}
-        </div>
+        <!-- Reference -->
+        <cite class="verse-reference">
+          — II Timothy 1:7 (NKJV)
+        </cite>
       </div>
-
-      <!-- Bottom Divider -->
-      <div class="section-divider w-20 h-0.5 mx-auto mt-8 bg-gradient-to-r from-transparent via-[#9c8040] to-transparent"></div>
     </div>
-    <!-- END EDIT SECTION -->
   </div>
 </section>
 
 <style>
-  /* Mobile responsive adjustments */
-  @media (max-width: 768px) {
-    .scripture-section {
-      padding: 60px 5%;
-    }
+  .scripture-section {
+    padding: 5rem 1.5rem;
+    background: #000000;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
 
-    .scripture-title {
-      font-size: 28px;
-    }
+  .bg-decorations {
+    position: absolute;
+    inset: 0;
+    opacity: 0.1;
+    pointer-events: none;
+  }
 
-    .scripture-text {
-      font-size: 22px;
-      padding: 0 15px;
-    }
+  .decoration-circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+  }
 
-    .scripture-text-container {
-      padding: 40px 25px;
-      margin: 0 10px;
-    }
+  .decoration-top {
+    top: 2.5rem;
+    right: 2.5rem;
+    width: 16rem;
+    height: 16rem;
+    background-color: var(--color-teal-mid);
+  }
 
-    .quote-marks {
-      font-size: 60px;
-    }
+  .decoration-bottom {
+    bottom: 2.5rem;
+    left: 2.5rem;
+    width: 24rem;
+    height: 24rem;
+    background-color: var(--color-gold);
+  }
 
-    .opening-quote {
-      top: 5px;
-      left: 10px;
-    }
+  .scripture-container {
+    max-width: 56rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 10;
+  }
 
-    .closing-quote {
-      bottom: 5px;
-      right: 10px;
-    }
+  .scripture-content {
+    text-align: center;
+  }
 
-    .scripture-reference {
-      font-size: 16px;
+  .badge-wrapper {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+  }
+
+  .badge {
+    display: inline-block;
+    background-color: rgba(156, 128, 64, 0.2);
+    color: var(--color-gold);
+    padding: 0.5rem 1.5rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(156, 128, 64, 0.3);
+  }
+
+  .month-text {
+    color: rgba(156, 128, 64, 0.8);
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    font-family: var(--font-family-secondary);
+  }
+
+  .verse-wrapper {
+    margin-bottom: 2rem;
+  }
+
+  .verse-text {
+    font-family: var(--font-family-secondary);
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .highlight {
+    color: var(--color-gold);
+    font-weight: 600;
+  }
+
+  .verse-reference {
+    color: var(--color-gold);
+    font-size: 1.25rem;
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  @media (min-width: 768px) {
+    .verse-text {
+      font-size: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .verse-text {
+      font-size: 2.25rem;
     }
   }
 </style>

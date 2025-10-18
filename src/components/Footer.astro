@@ -1,12 +1,330 @@
-<footer>
-  <p>&copy; {new Date().getFullYear()} Your Website</p>
+---
+// Footer Component
+---
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <!-- Footer Top Section -->
+    <div class="footer-top">
+      <!-- Brand Column -->
+      <div class="footer-column footer-brand">
+        <div class="footer-logo">
+          <img src="/images/bgp-logo.png" alt="BGP Logo" class="logo-image" />
+        </div>
+        <p class="footer-tagline">Believe. Connect. Grow.</p>
+
+        <div class="footer-info">
+          <p class="info-item">
+            <i class="fas fa-clock"></i>
+            <span>Sundays at 12:30 PM</span>
+          </p>
+          <p class="info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>East Wake High School, Wendell</span>
+          </p>
+          <a href="https://maps.google.com/?q=East+Wake+High+School+Wendell+NC" target="_blank" rel="noopener noreferrer" class="directions-link">
+            <i class="fas fa-directions"></i>
+            Get Directions
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links Column -->
+      <div class="footer-column">
+        <h3 class="footer-heading">Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/join">Join</a></li>
+          <li><a href="/give">Give</a></li>
+          <li><a href="/events">Events</a></li>
+          <li><a href="/shop">Shop</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter Column -->
+      <div class="footer-column">
+        <h3 class="footer-heading">Stay Connected</h3>
+        <p class="newsletter-text">Subscribe to our newsletter for updates</p>
+
+        <form
+          action="https://formsubmit.co/newsletter@bgpnc.com"
+          method="POST"
+          class="footer-newsletter-form"
+        >
+          <input type="text" name="_honey" style="display:none">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://bgpnc.com/newsletter-thank-you">
+          <input type="hidden" name="_subject" value="Footer Newsletter Signup - BGP">
+
+          <div class="newsletter-input-group">
+            <input
+              type="email"
+              name="email"
+              placeholder="Your email"
+              required
+              class="newsletter-input"
+            />
+            <button type="submit" class="newsletter-button">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </form>
+
+        <!-- Social Media Links -->
+        <div class="social-links">
+          <a href="https://facebook.com/bgpnc" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://instagram.com/bgpnc" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://tiktok.com/@bgpnc" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+            <i class="fab fa-tiktok"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom Section -->
+    <div class="footer-bottom">
+      <p class="copyright">
+        &copy; {new Date().getFullYear()} Believers Gathering Place. All rights reserved.
+      </p>
+      <p class="credits">
+        Designed by <a href="https://mwdesignstudio.com" target="_blank" rel="noopener noreferrer">MW Design Studio</a>
+      </p>
+    </div>
+  </div>
 </footer>
 
 <style>
-  footer {
-    background: #333;
-    color: #fff;
-    padding: 1rem;
+  .site-footer {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 4rem 1.5rem 2rem;
+  }
+
+  .footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  @media (min-width: 768px) {
+    .footer-top {
+      grid-template-columns: 2fr 1fr 1.5fr;
+    }
+  }
+
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Brand Column */
+  .footer-brand {
+    gap: 1.5rem;
+  }
+
+  .footer-logo {
+    margin-bottom: 0.5rem;
+  }
+
+  .logo-image {
+    height: 80px;
+    width: auto;
+    display: block;
+  }
+
+  .footer-tagline {
+    font-family: var(--font-family-secondary);
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+  }
+
+  .footer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+  }
+
+  .info-item i {
+    color: var(--color-gold);
+    width: 20px;
+  }
+
+  .directions-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-gold);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    width: fit-content;
+  }
+
+  .directions-link:hover {
+    color: var(--color-gold-hover);
+    transform: translateX(5px);
+  }
+
+  /* Quick Links */
+  .footer-heading {
+    font-family: var(--font-family-secondary);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--color-gold);
+  }
+
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+
+  .footer-links a:hover {
+    color: var(--color-gold);
+    transform: translateX(5px);
+  }
+
+  /* Newsletter */
+  .newsletter-text {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .footer-newsletter-form {
+    margin-bottom: 1.5rem;
+  }
+
+  .newsletter-input-group {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .newsletter-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: white;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+  }
+
+  .newsletter-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .newsletter-input:focus {
+    outline: none;
+    border-color: var(--color-gold);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .newsletter-button {
+    padding: 0.75rem 1.25rem;
+    background-color: var(--color-gold);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .newsletter-button:hover {
+    background-color: var(--color-gold-hover);
+    transform: translateY(-2px);
+  }
+
+  /* Social Links */
+  .social-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .social-links a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .social-links a:hover {
+    background-color: var(--color-gold);
+    transform: translateY(-3px);
+  }
+
+  /* Footer Bottom */
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
     text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .footer-bottom {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .copyright,
+  .credits {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.875rem;
+  }
+
+  .credits a {
+    color: var(--color-gold);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .credits a:hover {
+    color: var(--color-gold-hover);
   }
 </style>
