@@ -1,9 +1,217 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const seoData = {
+  title: "Contact Us - Believer's Gathering Place",
+  description: "Get in touch with BGP. We'd love to hear from you and answer any questions you may have.",
+  image: "/images/bgp-og-image.jpg?v=3",
+};
 ---
 
-<Layout title="Contact">
-  <main>
-    <h1>Contact</h1>
-  </main>
+<Layout {...seoData}>
+  <section class="contact-section">
+    <div class="contact-container">
+      <!-- Section Header -->
+      <div class="contact-header">
+        <h1 class="contact-title">Contact Us</h1>
+        <p class="contact-subtitle">We'd love to hear from you</p>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="form-wrapper">
+        <form
+          action="https://formsubmit.co/contact@bgpnc.com"
+          method="POST"
+          class="contact-form"
+        >
+          <!-- Honeypot -->
+          <input type="text" name="_honey" style="display:none">
+
+          <!-- Disable Captcha -->
+          <input type="hidden" name="_captcha" value="false">
+
+          <!-- Success Page -->
+          <input type="hidden" name="_next" value="https://bgpnc.com/contact-thank-you">
+
+          <!-- Subject -->
+          <input type="hidden" name="_subject" value="New Contact Form Submission - BGP">
+
+          <!-- Form Fields -->
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="form-input"
+              placeholder="Your name"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="form-input"
+              placeholder="your.email@example.com"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone (Optional)</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              class="form-input"
+              placeholder="(555) 123-4567"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              class="form-textarea"
+              placeholder="How can we help you?"
+              rows="6"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="submit-button">
+            Send Message
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </section>
 </Layout>
+
+<style>
+  .contact-section {
+    padding: 6rem 1.5rem;
+    background-color: #ffffff;
+    min-height: 70vh;
+  }
+
+  .contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .contact-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .contact-title {
+    font-family: var(--font-family-secondary);
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: 200;
+    color: var(--color-primary-dark);
+    margin-bottom: 1rem;
+  }
+
+  .contact-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-light);
+    font-weight: 300;
+  }
+
+  /* Form Wrapper with Black Background */
+  .form-wrapper {
+    background-color: #000000;
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (min-width: 768px) {
+    .form-wrapper {
+      padding: 3rem 3.5rem;
+    }
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-group label {
+    font-family: var(--font-family-secondary);
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: #ffffff;
+    letter-spacing: 0.02em;
+  }
+
+  .form-input,
+  .form-textarea {
+    padding: 0.875rem 1.25rem;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: var(--font-family-primary);
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    transition: all 0.3s ease;
+  }
+
+  .form-input::placeholder,
+  .form-textarea::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .form-input:focus,
+  .form-textarea:focus {
+    outline: none;
+    border-color: var(--color-gold);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 150px;
+  }
+
+  .submit-button {
+    background-color: var(--color-gold);
+    color: #ffffff;
+    font-family: var(--font-family-secondary);
+    font-size: 1.1rem;
+    font-weight: 400;
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(156, 128, 64, 0.3);
+    align-self: flex-start;
+  }
+
+  .submit-button:hover {
+    background-color: var(--color-gold-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(156, 128, 64, 0.4);
+  }
+
+  @media (max-width: 640px) {
+    .submit-button {
+      width: 100%;
+    }
+  }
+</style>
