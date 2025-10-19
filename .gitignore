@@ -3,6 +3,7 @@
 
 # Build output
 /dist/
+/.vercel/
 
 # Astro generated files
 /.astro/
@@ -37,5 +38,6 @@ coverage/
 
 # Large media files and source assets
 Website-Media/
+website-media/
 *.mp4
 *.mov
