@@ -1,0 +1,357 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seoData = {
+  title: "Give - Believer's Gathering Place",
+  description: "Support BGP through various giving methods including Tithe.ly, Givelify, CashApp, Zelle, and text to give.",
+  image: "/images/bgp-og-image.jpg?v=2",
+};
+---
+
+<Layout {...seoData}>
+  <!-- Ways to Give Widget -->
+  <section class="giving-section">
+    <div class="giving-widget">
+      <div class="widget-container">
+        <h2>Ways to Give</h2>
+        <p class="section-subtitle">Choose the giving method that works best for you</p>
+
+        <div class="widget-grid">
+
+          <!-- Text to Give -->
+          <div class="widget-card">
+            <h3>Text to Give</h3>
+            <p class="card-description">Text <strong>GIVE</strong> to</p>
+            <button onclick="copyToClipboard('+19192302074', 'Phone number copied!', this)"
+                    aria-label="Copy phone number +1 919 230 2074 for text giving"
+                    class="give-button">
+              +1 (919) 230-2074
+            </button>
+          </div>
+
+          <!-- Tithe.ly -->
+          <div class="widget-card">
+            <h3>Tithe.ly</h3>
+            <p class="card-description">Secure online giving</p>
+            <a href="https://give.tithe.ly/?formId=85270155-32e5-4ed9-8546-443d0d95eb4b"
+               target="_blank"
+               aria-label="Give through Tithe.ly secure platform"
+               class="give-button give-link">
+              GIVE WITH TITHE.LY
+            </a>
+          </div>
+
+          <!-- Givelify -->
+          <div class="widget-card">
+            <h3>Givelify</h3>
+            <p class="card-description">Mobile app giving</p>
+            <a href="https://www.givelify.com/donate/MTUyNDU0OQ==/selection"
+               target="_blank"
+               aria-label="Give through Givelify mobile app"
+               class="give-button give-link">
+              GIVE WITH GIVELIFY
+            </a>
+          </div>
+
+          <!-- CashApp -->
+          <div class="widget-card">
+            <h3>CashApp</h3>
+            <p class="card-description">Send money instantly</p>
+            <button onclick="copyToClipboard('$BGPchurch', 'CashApp handle copied!', this)"
+                    aria-label="Copy CashApp handle $BGPchurch"
+                    class="give-button">
+              $BGPchurch
+            </button>
+          </div>
+
+          <!-- Zelle -->
+          <div class="widget-card">
+            <h3>Zelle</h3>
+            <p class="card-description">Direct bank transfer</p>
+            <button onclick="copyToClipboard('thebgpnc@gmail.com', 'Email copied!', this)"
+                    aria-label="Copy Zelle email address thebgpnc@gmail.com"
+                    class="give-button">
+              COPY ZELLE EMAIL
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copy notification -->
+    <div id="copyNotification" aria-live="polite" aria-atomic="true">
+      Copied to clipboard!
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* CSS Variables */
+  :root {
+    --primary: #212121;
+    --primary-dark: #000000;
+    --accent: #9c8040;
+    --accent-hover: #b8975a;
+    --secondary: #009688;
+    --text-dark: #212121;
+    --text-light: #666666;
+    --background: #ffffff;
+    --light-gray: #f8f8f8;
+    --border: #e8e8e8;
+    --shadow-light: 0 2px 20px rgba(0,0,0,0.08);
+    --shadow-hover: 0 8px 30px rgba(0,0,0,0.12);
+  }
+
+  /* Giving Section */
+  .giving-section {
+    padding: 120px 0;
+    background-color: var(--background);
+  }
+
+  .giving-widget {
+    background-color: #f9f9f9;
+    padding: 60px 5%;
+    border-radius: 12px;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+
+  .widget-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .widget-container h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    font-size: 18px;
+    color: var(--text-light);
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .widget-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    justify-content: center;
+  }
+
+  .widget-card {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    border: 3px solid var(--accent);
+    transition: all 0.3s;
+  }
+
+  .widget-card:nth-child(2),
+  .widget-card:nth-child(5) {
+    border-color: var(--secondary);
+  }
+
+  .widget-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+  }
+
+  .widget-card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .card-description {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 20px;
+  }
+
+  .card-description strong {
+    color: var(--accent);
+    font-size: 20px;
+  }
+
+  .give-button {
+    background: var(--primary);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .give-button:hover {
+    background: var(--accent);
+  }
+
+  .give-link {
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  /* Copy Notification */
+  #copyNotification {
+    position: fixed;
+    top: 20px;
+    right: -400px;
+    background: var(--secondary);
+    color: white;
+    padding: 16px 32px;
+    border-radius: 8px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 99999;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  #copyNotification.show {
+    opacity: 1;
+    right: 20px;
+  }
+
+  /* Responsive CSS */
+  @media (max-width: 768px) {
+    .giving-widget {
+      padding: 40px 3%;
+    }
+
+    .widget-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .widget-card {
+      padding: 25px;
+    }
+
+    .widget-card h3 {
+      font-size: 20px;
+    }
+
+    .widget-container h2 {
+      font-size: 28px;
+    }
+
+    .section-subtitle {
+      font-size: 16px;
+    }
+
+    .giving-section {
+      padding: 80px 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .widget-card {
+      padding: 20px;
+    }
+
+    .give-button {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+
+    #copyNotification {
+      font-size: 14px;
+      padding: 12px 24px;
+    }
+
+    .giving-section {
+      padding: 60px 0;
+    }
+  }
+
+  /* Improved layout for 5 cards */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .widget-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1025px) {
+    .widget-grid {
+      grid-template-columns: repeat(6, 1fr);
+      justify-items: center;
+    }
+
+    /* First row - 3 cards spanning 2 columns each */
+    .widget-card:nth-child(1) { grid-column: 1 / 3; }
+    .widget-card:nth-child(2) { grid-column: 3 / 5; }
+    .widget-card:nth-child(3) { grid-column: 5 / 7; }
+
+    /* Second row - 2 cards centered, spanning 2 columns each */
+    .widget-card:nth-child(4) { grid-column: 2 / 4; }
+    .widget-card:nth-child(5) { grid-column: 4 / 6; }
+
+    /* Ensure all cards maintain consistent width */
+    .widget-card {
+      width: 100%;
+      max-width: 280px;
+    }
+  }
+</style>
+
+<script is:inline>
+  // Make function globally available
+  window.copyToClipboard = function(text, message, buttonElement) {
+    navigator.clipboard.writeText(text).then(function() {
+      // Show what was copied in the button
+      var originalText = buttonElement.innerHTML;
+      buttonElement.innerHTML = '<i class="fas fa-check"></i> Copied!';
+      buttonElement.style.background = '#009688';
+
+      setTimeout(function() {
+        buttonElement.innerHTML = originalText;
+        buttonElement.style.background = '#212121';
+      }, 2000);
+
+      // Show notification
+      var notification = document.getElementById('copyNotification');
+      notification.textContent = message;
+      notification.classList.add('show');
+
+      setTimeout(function() {
+        notification.classList.remove('show');
+      }, 2500);
+    }).catch(function(err) {
+      // Fallback for older browsers
+      console.error('Failed to copy: ', err);
+      alert(message + '\n' + text);
+    });
+  };
+
+  // Add hover effect to cards
+  document.addEventListener('DOMContentLoaded', function() {
+    var cards = document.querySelectorAll('.widget-card');
+    cards.forEach(function(card) {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-5px)';
+        this.style.boxShadow = '0 5px 20px rgba(0,0,0,0.12)';
+      });
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+        this.style.boxShadow = '0 3px 10px rgba(0,0,0,0.08)';
+      });
+    });
+  });
+</script>
