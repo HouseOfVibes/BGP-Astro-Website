@@ -1,7 +1,6 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import vercel from '@astrojs/vercel';
-import partytown from '@astrojs/partytown';
 
 import tailwindcss from '@tailwindcss/vite';
 
@@ -24,11 +23,6 @@ export default defineConfig({
     sitemap({
       // Customize sitemap generation
       // filter: (page) => page !== 'https://example.com/secret-page',
-    }),
-    partytown({
-      config: {
-        forward: ['dataLayer.push'],
-      },
     }),
   ],
 
