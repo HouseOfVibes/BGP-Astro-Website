@@ -30,16 +30,20 @@
         <input type="hidden" name="_subject" value="New Newsletter Signup - BGP">
 
         <div class="form-wrapper">
+          <label for="connect-newsletter-email" class="sr-only">Email address</label>
           <input
+            id="connect-newsletter-email"
             type="email"
             name="email"
             required
             class="email-input"
             placeholder="Enter your email"
+            aria-label="Enter your email address for newsletter"
           />
           <button
             type="submit"
             class="submit-button"
+            aria-label="Subscribe to newsletter"
           >
             Subscribe
           </button>
@@ -86,6 +90,19 @@
 </section>
 
 <style>
+  /* Screen reader only class for accessibility */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
   .connect-section {
     padding: 6rem 1.5rem 5rem;
     background-color: white;

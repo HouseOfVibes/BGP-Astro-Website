@@ -10,8 +10,8 @@ export function initScrollAnimations() {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        // Optionally unobserve after animation to improve performance
-        // observer.unobserve(entry.target);
+        // Unobserve after animation to improve performance
+        observer.unobserve(entry.target);
       }
     });
   }, observerOptions);

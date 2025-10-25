@@ -22,9 +22,10 @@ const seoData = {
           <div class="widget-card">
             <h3>Text to Give</h3>
             <p class="card-description">Text <strong>GIVE</strong> to</p>
-            <button onclick="copyToClipboard('+19192302074', 'Phone number copied!', this)"
+            <button data-copy="+19192302074"
+                    data-message="Phone number copied!"
                     aria-label="Copy phone number +1 919 230 2074 for text giving"
-                    class="give-button">
+                    class="give-button copy-button">
               +1 (919) 230-2074
             </button>
           </div>
@@ -57,9 +58,10 @@ const seoData = {
           <div class="widget-card">
             <h3>CashApp</h3>
             <p class="card-description">Send money instantly</p>
-            <button onclick="copyToClipboard('$BGPchurch', 'CashApp handle copied!', this)"
+            <button data-copy="$BGPchurch"
+                    data-message="CashApp handle copied!"
                     aria-label="Copy CashApp handle $BGPchurch"
-                    class="give-button">
+                    class="give-button copy-button">
               $BGPchurch
             </button>
           </div>
@@ -68,9 +70,10 @@ const seoData = {
           <div class="widget-card">
             <h3>Zelle</h3>
             <p class="card-description">Direct bank transfer</p>
-            <button onclick="copyToClipboard('thebgpnc@gmail.com', 'Email copied!', this)"
+            <button data-copy="thebgpnc@gmail.com"
+                    data-message="Email copied!"
                     aria-label="Copy Zelle email address thebgpnc@gmail.com"
-                    class="give-button">
+                    class="give-button copy-button">
               COPY ZELLE EMAIL
             </button>
           </div>
@@ -314,36 +317,52 @@ const seoData = {
 </style>
 
 <script is:inline>
-  // Make function globally available
-  window.copyToClipboard = function(text, message, buttonElement) {
-    navigator.clipboard.writeText(text).then(function() {
-      // Show what was copied in the button
-      var originalText = buttonElement.innerHTML;
-      buttonElement.innerHTML = '<i class="fas fa-check"></i> Copied!';
-      buttonElement.style.background = '#009688';
-
-      setTimeout(function() {
-        buttonElement.innerHTML = originalText;
-        buttonElement.style.background = '#212121';
-      }, 2000);
-
-      // Show notification
-      var notification = document.getElementById('copyNotification');
-      notification.textContent = message;
-      notification.classList.add('show');
-
-      setTimeout(function() {
-        notification.classList.remove('show');
-      }, 2500);
-    }).catch(function(err) {
-      // Fallback for older browsers
-      console.error('Failed to copy: ', err);
-      alert(message + '\n' + text);
-    });
-  };
-
-  // Add hover effect to cards
+  // Add event listeners for copy buttons
   document.addEventListener('DOMContentLoaded', function() {
+    // Handle copy buttons with proper event listeners
+    var copyButtons = document.querySelectorAll('.copy-button');
+    copyButtons.forEach(function(button) {
+      button.addEventListener('click', function() {
+        var text = this.getAttribute('data-copy');
+        var message = this.getAttribute('data-message');
+        var buttonElement = this;
+
+        navigator.clipboard.writeText(text).then(function() {
+          // Show what was copied in the button
+          var originalText = buttonElement.innerHTML;
+          buttonElement.innerHTML = '<i class="fas fa-check"></i> Copied!';
+          buttonElement.style.background = '#009688';
+
+          setTimeout(function() {
+            buttonElement.innerHTML = originalText;
+            buttonElement.style.background = '#212121';
+          }, 2000);
+
+          // Show notification
+          var notification = document.getElementById('copyNotification');
+          notification.textContent = message;
+          notification.classList.add('show');
+
+          setTimeout(function() {
+            notification.classList.remove('show');
+          }, 2500);
+        }).catch(function(err) {
+          // Fallback for older browsers
+          console.error('Failed to copy: ', err);
+          alert(message + '\n' + text);
+        });
+      });
+
+      // Add keyboard support for accessibility
+      button.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+
+    // Add hover effect to cards
     var cards = document.querySelectorAll('.widget-card');
     cards.forEach(function(card) {
       card.addEventListener('mouseenter', function() {

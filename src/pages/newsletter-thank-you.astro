@@ -1,0 +1,217 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SEO from '../components/SEO.astro';
+---
+
+<Layout>
+  <SEO
+    slot="head"
+    title="Thank You for Subscribing | Believers Gathering Place"
+    description="Thank you for subscribing to our newsletter. We're excited to keep you updated with news, events, and inspirational content from BGP."
+    url="https://bgpnc.com/newsletter-thank-you"
+  />
+
+  <main class="thank-you-page">
+    <div class="thank-you-container">
+      <div class="thank-you-content">
+        <div class="icon-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+        </div>
+
+        <h1>Thank You for Subscribing!</h1>
+
+        <p class="thank-you-message">
+          We're excited to have you join our community. You'll receive updates about upcoming events,
+          inspirational messages, and news from Believers Gathering Place.
+        </p>
+
+        <p class="secondary-message">
+          Keep an eye on your inbox for our latest newsletter.
+        </p>
+
+        <div class="action-buttons">
+          <a href="/" class="btn-primary">Return Home</a>
+          <a href="/join" class="btn-secondary">Learn More About Us</a>
+        </div>
+
+        <div class="social-connect">
+          <p>Connect with us on social media:</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/BGPWendellNC" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/bgpwendellnc" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.tiktok.com/@bgpwendellnc" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+              <i class="fab fa-tiktok"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .thank-you-page {
+    min-height: calc(100vh - 200px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, var(--color-teal-dark) 0%, var(--color-teal-mid) 100%);
+  }
+
+  .thank-you-container {
+    max-width: 600px;
+    width: 100%;
+  }
+
+  .thank-you-content {
+    background: white;
+    border-radius: 16px;
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  }
+
+  .icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, var(--color-teal-dark), var(--color-teal-mid));
+    border-radius: 50%;
+    margin: 0 auto 2rem;
+  }
+
+  .icon-wrapper svg {
+    color: white;
+  }
+
+  h1 {
+    font-family: 'Noto Serif', serif;
+    font-size: 2.5rem;
+    color: var(--color-primary-dark);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+  }
+
+  .thank-you-message {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-text-dark);
+    margin-bottom: 1rem;
+  }
+
+  .secondary-message {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+
+  .action-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+  }
+
+  .btn-primary {
+    background: var(--color-gold);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: #8a7138;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(156, 128, 64, 0.3);
+  }
+
+  .btn-secondary {
+    background: var(--color-teal-dark);
+    color: white;
+  }
+
+  .btn-secondary:hover {
+    background: var(--color-teal-mid);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(26, 77, 77, 0.3);
+  }
+
+  .social-connect {
+    padding-top: 2rem;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  .social-connect p {
+    color: #666;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--color-teal-dark);
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.25rem;
+  }
+
+  .social-links a:hover {
+    background: var(--color-gold);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(156, 128, 64, 0.3);
+  }
+
+  @media (max-width: 640px) {
+    .thank-you-content {
+      padding: 2rem 1.5rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .thank-you-message {
+      font-size: 1rem;
+    }
+
+    .action-buttons {
+      flex-direction: column;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      width: 100%;
+    }
+  }
+</style>
