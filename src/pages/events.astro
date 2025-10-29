@@ -1,0 +1,533 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const seoData = {
+  title: "Events & Gatherings - Believer's Gathering Place",
+  description: "Join us for worship services, community events, and fellowship opportunities at BGP. Discover upcoming events and connect with our church family.",
+  image: "/images/bgp-og-image.jpg?v=3",
+};
+
+// Google Calendar embed URL
+const googleCalendarUrl = "https://calendar.google.com/calendar/embed?src=thebgpnc%40gmail.com&ctz=America%2FNew_York&mode=MONTH&showTitle=0&showNav=1&showPrint=0&showTabs=1&showCalendars=0&showTz=1";
+---
+
+<Layout {...seoData}>
+  <!-- Hero Section -->
+  <section class="events-hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-scripture">
+        "For where two or three gather in my name, there am I with them."
+      </p>
+      <cite class="scripture-reference">— Matthew 18:20 (NIV)</cite>
+      <h1 class="hero-title">Events & Gatherings</h1>
+      <p class="hero-subtitle">
+        Join us for worship, fellowship, and community events that strengthen our faith and bring us together.
+      </p>
+    </div>
+  </section>
+
+  <!-- Welcome Section -->
+  <section class="welcome-section">
+    <div class="welcome-container">
+      <div class="welcome-content">
+        <h2 class="section-title">Experience BGP</h2>
+        <p class="welcome-text">
+          At Believers Gathering Place, we believe that faith is strengthened through community. Whether you're joining us for Sunday worship, a special event, or a fellowship gathering, you'll find a warm welcome and authentic connections.
+        </p>
+        <p class="welcome-text">
+          Our events are designed to help you grow spiritually, connect with others, and serve our community. We invite you to be part of what God is doing at BGP.
+        </p>
+        <div class="welcome-buttons">
+          <a href="/#service-info" class="btn-primary">Visit Us Sunday</a>
+          <a href="/contact" class="btn-secondary">Get Connected</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Google Calendar Section -->
+  <section class="calendar-section">
+    <div class="calendar-container">
+      <div class="section-header">
+        <h2 class="section-title">Upcoming Events</h2>
+        <p class="section-description">
+          Stay updated with all our events, services, and gatherings. Click on any event for more details.
+        </p>
+      </div>
+
+      <!-- Calendar Embed -->
+      <div class="calendar-wrapper">
+        <iframe
+          src={googleCalendarUrl}
+          class="calendar-iframe"
+          title="BGP Events Calendar"
+        ></iframe>
+      </div>
+
+      <!-- Calendar Instructions -->
+      <div class="calendar-instructions">
+        <h3 class="instructions-title">Add to Your Calendar</h3>
+        <p class="instructions-text">
+          Never miss an event! You can subscribe to our calendar and receive automatic updates on your device.
+        </p>
+        <div class="calendar-links">
+          <a href="https://calendar.google.com/calendar/u/0?cid=dGhlYmdwbmNAZ21haWwuY29t" class="calendar-link" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-google"></i>
+            <span>Google Calendar</span>
+          </a>
+          <a href="webcal://calendar.google.com/calendar/ical/thebgpnc%40gmail.com/public/basic.ics" class="calendar-link" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-apple"></i>
+            <span>Apple Calendar</span>
+          </a>
+          <a href="https://calendar.google.com/calendar/ical/thebgpnc%40gmail.com/public/basic.ics" class="calendar-link" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-calendar"></i>
+            <span>Outlook</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Event Categories -->
+  <section class="categories-section">
+    <div class="categories-container">
+      <h2 class="section-title">Event Types</h2>
+      <div class="categories-grid">
+        <!-- Sunday Services -->
+        <div class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-church"></i>
+          </div>
+          <h3 class="category-title">Sunday Worship</h3>
+          <p class="category-description">
+            Join us every Sunday at 12:30 PM for inspiring worship, powerful messages, and authentic community.
+          </p>
+        </div>
+
+        <!-- Community Events -->
+        <div class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3 class="category-title">Community Events</h3>
+          <p class="category-description">
+            Special gatherings, seasonal celebrations, and community outreach opportunities throughout the year.
+          </p>
+        </div>
+
+        <!-- Connect Groups -->
+        <div class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-hands-helping"></i>
+          </div>
+          <h3 class="category-title">Connect Groups</h3>
+          <p class="category-description">
+            Small group gatherings for men, women, and families to build deeper relationships and grow in faith.
+          </p>
+        </div>
+
+        <!-- Special Services -->
+        <div class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-star"></i>
+          </div>
+          <h3 class="category-title">Special Services</h3>
+          <p class="category-description">
+            Holiday services, baptisms, and other special occasions that mark important moments in our faith journey.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-container">
+      <h2 class="cta-title">Have Questions About Our Events?</h2>
+      <p class="cta-text">
+        We'd love to hear from you! Contact us to learn more about upcoming events or to get involved.
+      </p>
+      <a href="/contact" class="btn-cta">Contact Us</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Hero Section */
+  .events-hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('/images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: white;
+    max-width: 56rem;
+    padding: 0 1.5rem;
+  }
+
+  .hero-scripture {
+    font-family: var(--font-family-primary);
+    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+    font-style: italic;
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  .scripture-reference {
+    display: block;
+    font-size: 1rem;
+    color: var(--color-gold);
+    margin-bottom: 2rem;
+    font-style: normal;
+  }
+
+  .hero-title {
+    font-family: var(--font-family-secondary);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 200;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+
+  /* Welcome Section */
+  .welcome-section {
+    padding: 5rem 1.5rem;
+    background: white;
+  }
+
+  .welcome-container {
+    max-width: 56rem;
+    margin: 0 auto;
+  }
+
+  .welcome-content {
+    text-align: center;
+  }
+
+  .section-title {
+    font-family: var(--font-family-secondary);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 200;
+    color: var(--color-primary-dark);
+    margin-bottom: 1.5rem;
+  }
+
+  .welcome-text {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-text-dark);
+    margin-bottom: 1.5rem;
+  }
+
+  .welcome-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    display: inline-block;
+    padding: 0.875rem 2rem;
+    border-radius: 6px;
+    font-family: var(--font-family-secondary);
+    font-weight: 400;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary {
+    background-color: var(--color-gold);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-gold-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(156, 128, 64, 0.3);
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary-dark);
+    border: 2px solid var(--color-primary-dark);
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-teal-mid);
+    border-color: var(--color-teal-mid);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  /* Calendar Section */
+  .calendar-section {
+    padding: 5rem 1.5rem;
+    background: linear-gradient(to bottom, #f9fafb 0%, white 100%);
+  }
+
+  .calendar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-description {
+    font-size: 1.125rem;
+    color: var(--color-text-light);
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+
+  .calendar-wrapper {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+    overflow: hidden;
+  }
+
+  .calendar-iframe {
+    width: 100%;
+    min-height: 600px;
+    border: none;
+    border-radius: 8px;
+  }
+
+  /* Calendar Instructions */
+  .calendar-instructions {
+    background: white;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+  }
+
+  .instructions-title {
+    font-family: var(--font-family-secondary);
+    font-size: 1.75rem;
+    font-weight: 300;
+    color: var(--color-primary-dark);
+    margin-bottom: 1rem;
+  }
+
+  .instructions-text {
+    font-size: 1.125rem;
+    color: var(--color-text-light);
+    margin-bottom: 2rem;
+  }
+
+  .calendar-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .calendar-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.5rem;
+    background: var(--color-gold);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-family: var(--font-family-secondary);
+    font-weight: 400;
+    transition: all 0.3s ease;
+  }
+
+  .calendar-link:hover {
+    background-color: var(--color-gold-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(156, 128, 64, 0.3);
+  }
+
+  .calendar-link i {
+    font-size: 1.25rem;
+  }
+
+  /* Categories Section */
+  .categories-section {
+    padding: 5rem 1.5rem;
+    background: white;
+  }
+
+  .categories-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .categories-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .categories-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .category-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s ease;
+    border: 2px solid transparent;
+  }
+
+  .category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(45, 115, 115, 0.15);
+    border-color: var(--color-teal-mid);
+  }
+
+  .category-icon {
+    width: 4rem;
+    height: 4rem;
+    background: var(--color-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: all 0.4s ease;
+  }
+
+  .category-card:hover .category-icon {
+    transform: scale(1.1) rotate(5deg);
+    background: var(--color-gold-hover);
+  }
+
+  .category-icon i {
+    font-size: 1.75rem;
+    color: white;
+  }
+
+  .category-title {
+    font-family: var(--font-family-secondary);
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--color-primary-dark);
+    margin-bottom: 1rem;
+  }
+
+  .category-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-dark);
+  }
+
+  /* CTA Section */
+  .cta-section {
+    padding: 5rem 1.5rem;
+    background: linear-gradient(135deg, var(--color-teal-dark), var(--color-teal-mid));
+    text-align: center;
+  }
+
+  .cta-container {
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+
+  .cta-title {
+    font-family: var(--font-family-secondary);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 200;
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .cta-text {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 2rem;
+  }
+
+  .btn-cta {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: var(--color-gold);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-family: var(--font-family-secondary);
+    font-size: 1.125rem;
+    font-weight: 400;
+    transition: all 0.3s ease;
+  }
+
+  .btn-cta:hover {
+    background-color: var(--color-gold-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(156, 128, 64, 0.4);
+  }
+
+  @media (max-width: 640px) {
+    .welcome-buttons {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      width: 100%;
+    }
+
+    .calendar-links {
+      flex-direction: column;
+    }
+
+    .calendar-link {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
+</Layout>

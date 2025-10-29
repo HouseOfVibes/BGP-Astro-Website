@@ -41,3 +41,7 @@ Website-Media/
 website-media/
 *.mp4
 *.mov
+
+# Brand documentation (internal reference only)
+BRAND-COLORS.md
+BRAND-TYPOGRAPHY.md
