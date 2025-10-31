@@ -1,0 +1,39 @@
+---
+// Skip Navigation Link for Keyboard Accessibility
+// Allows keyboard users to skip directly to main content
+---
+
+<a href="#main-content" class="skip-nav">
+  Skip to main content
+</a>
+
+<style>
+  .skip-nav {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--color-gold);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    z-index: 10000;
+    border-radius: 0 0 8px 0;
+    transition: top 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .skip-nav:focus {
+    top: 0;
+    outline: 3px solid white;
+    outline-offset: 2px;
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .skip-nav {
+      border: 2px solid white;
+    }
+  }
+</style>

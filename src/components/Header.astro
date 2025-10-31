@@ -2,43 +2,53 @@
 // Header Component with Navigation
 ---
 
-<header class="site-header">
+<header class="site-header" role="banner">
   <div class="header-container">
     <!-- Logo -->
     <div class="logo">
-      <a href="/" class="logo-link">
-        <img src="/images/BGP-(400x400px)-website header.png" alt="BGP Logo" class="logo-image" />
-        <span class="logo-text">Believers Gathering Place</span>
+      <a href="/" class="logo-link" aria-label="BGP Home">
+        <img src="/images/BGP-(400x400px)-website header.png" alt="Believers Gathering Place Logo" class="logo-image" />
+        <span class="logo-text" aria-hidden="true">Believers Gathering Place</span>
       </a>
     </div>
 
     <!-- Mobile Menu Toggle -->
-    <button class="mobile-menu-toggle" aria-label="Toggle menu">
-      <span class="hamburger"></span>
-      <span class="hamburger"></span>
-      <span class="hamburger"></span>
+    <button
+      class="mobile-menu-toggle"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+      aria-controls="main-navigation"
+    >
+      <span class="hamburger" aria-hidden="true"></span>
+      <span class="hamburger" aria-hidden="true"></span>
+      <span class="hamburger" aria-hidden="true"></span>
     </button>
 
     <!-- Navigation -->
-    <nav class="main-nav">
+    <nav class="main-nav" id="main-navigation" aria-label="Main navigation" role="navigation">
       <ul class="nav-list">
         <li><a href="/" class="nav-link">HOME</a></li>
         <li class="nav-item-dropdown">
-          <button class="nav-link dropdown-toggle" aria-expanded="false">
+          <button
+            class="nav-link dropdown-toggle"
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-controls="about-dropdown"
+          >
             ABOUT
-            <i class="fas fa-chevron-down dropdown-icon"></i>
+            <i class="fas fa-chevron-down dropdown-icon" aria-hidden="true"></i>
           </button>
-          <ul class="dropdown-menu">
-            <li><a href="/#leadership" class="dropdown-link">Leadership</a></li>
-            <li><a href="/#values" class="dropdown-link">Our Values</a></li>
-            <li><a href="/#scripture" class="dropdown-link">Scripture</a></li>
-            <li><a href="/#service-info" class="dropdown-link">Service Info</a></li>
+          <ul class="dropdown-menu" id="about-dropdown" role="menu">
+            <li role="none"><a href="/#leadership" class="dropdown-link" role="menuitem">Leadership</a></li>
+            <li role="none"><a href="/#values" class="dropdown-link" role="menuitem">Our Values</a></li>
+            <li role="none"><a href="/#scripture" class="dropdown-link" role="menuitem">Scripture</a></li>
+            <li role="none"><a href="/#service-info" class="dropdown-link" role="menuitem">Service Info</a></li>
           </ul>
         </li>
         <li><a href="/events" class="nav-link">EVENTS</a></li>
         <li><a href="/join" class="nav-link">JOIN</a></li>
         <li><a href="/give" class="nav-link">GIVE</a></li>
-        <li><a href="https://inspiringstyles.printful.me/" target="_blank" rel="noopener noreferrer" class="nav-link">SHOP</a></li>
+        <li><a href="https://inspiringstyles.printful.me/" target="_blank" rel="noopener noreferrer" class="nav-link">SHOP<span class="sr-only"> (opens in new tab)</span></a></li>
         <li><a href="/contact" class="nav-link">CONTACT</a></li>
       </ul>
     </nav>
@@ -359,16 +369,30 @@
       border-radius: 0;
     }
   }
+
+  /* Screen Reader Only Class */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
 </style>
 
 <script>
   // Mobile menu toggle
-  const menuToggle = document.querySelector('.mobile-menu-toggle');
-  const mainNav = document.querySelector('.main-nav');
+  const menuToggle = document.querySelector('.mobile-menu-toggle') as HTMLButtonElement;
+  const mainNav = document.querySelector('.main-nav') as HTMLElement;
 
   if (menuToggle && mainNav) {
     menuToggle.addEventListener('click', () => {
-      mainNav.classList.toggle('active');
+      const isOpen = mainNav.classList.toggle('active');
+      menuToggle.setAttribute('aria-expanded', isOpen.toString());
     });
 
     // Close menu when clicking outside
@@ -376,25 +400,48 @@
       const target = e.target as Node;
       if (!mainNav.contains(target) && !menuToggle.contains(target)) {
         mainNav.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Close menu with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mainNav.classList.contains('active')) {
+        mainNav.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.focus();
       }
     });
   }
 
-  // Dropdown toggle functionality
+  // Dropdown toggle functionality with keyboard support
   const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
 
   dropdownToggles.forEach(toggle => {
+    // Click handler
     toggle.addEventListener('click', (e) => {
       e.preventDefault();
       const parentItem = toggle.closest('.nav-item-dropdown');
 
       // Toggle active class on mobile
       if (window.innerWidth <= 1024) {
-        parentItem?.classList.toggle('active');
+        const isActive = parentItem?.classList.toggle('active');
+        toggle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+      }
+    });
 
-        // Update aria-expanded
-        const isExpanded = parentItem?.classList.contains('active');
-        toggle.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+    // Keyboard handler for Enter and Space
+    toggle.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        (e.target as HTMLElement).click();
+      }
+
+      // Close dropdown with Escape
+      if (e.key === 'Escape') {
+        const parentItem = toggle.closest('.nav-item-dropdown');
+        parentItem?.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
       }
     });
   });
@@ -404,8 +451,11 @@
   dropdownLinks.forEach(link => {
     link.addEventListener('click', () => {
       mainNav?.classList.remove('active');
+      menuToggle?.setAttribute('aria-expanded', 'false');
       document.querySelectorAll('.nav-item-dropdown').forEach(item => {
         item.classList.remove('active');
+        const toggle = item.querySelector('.dropdown-toggle');
+        toggle?.setAttribute('aria-expanded', 'false');
       });
     });
   });
