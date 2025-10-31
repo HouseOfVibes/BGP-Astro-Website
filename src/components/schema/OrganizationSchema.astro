@@ -1,0 +1,72 @@
+---
+// Organization and Church Schema for BGP
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Church", "Organization", "Place"],
+      "@id": "https://bgpnc.com/#organization",
+      "name": "Believers Gathering Place",
+      "alternateName": "BGP Church",
+      "url": "https://bgpnc.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://bgpnc.com/images/bgp-logo.png",
+        "width": 400,
+        "height": 400
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://bgpnc.com/images/bgp-og-image.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "description": "Join our community where faith grows, love thrives, and lives are transformed. Sunday services at 10:30 AM Eastern in Raleigh, NC.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "2305 Lake Wheeler Drive",
+        "addressLocality": "Raleigh",
+        "addressRegion": "NC",
+        "postalCode": "27603",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "35.7420",
+        "longitude": "-78.6644"
+      },
+      "telephone": "+1-919-230-2074",
+      "email": "contact@bgpnc.com",
+      "sameAs": [
+        "https://www.facebook.com/BGPWendellNC",
+        "https://www.instagram.com/bgpwendellnc",
+        "https://www.tiktok.com/@bgpwendellnc"
+      ],
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Sunday",
+        "opens": "10:30",
+        "closes": "12:00"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Pastor Mark Smith",
+        "jobTitle": "Senior Pastor"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://bgpnc.com/#website",
+      "url": "https://bgpnc.com",
+      "name": "Believers Gathering Place",
+      "description": "Official website of Believers Gathering Place Church in Raleigh, NC",
+      "publisher": {
+        "@id": "https://bgpnc.com/#organization"
+      },
+      "inLanguage": "en-US"
+    }
+  ]
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

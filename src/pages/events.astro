@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import EventSchema from '../components/schema/EventSchema.astro';
+import WebPageSchema from '../components/schema/WebPageSchema.astro';
 
 const seoData = {
   title: "Events & Gatherings - Believer's Gathering Place",
@@ -12,6 +14,17 @@ const googleCalendarUrl = "https://calendar.google.com/calendar/embed?src=thebgp
 ---
 
 <Layout {...seoData}>
+  <EventSchema slot="head" />
+  <WebPageSchema
+    slot="head"
+    pageName="Events & Gatherings"
+    pageDescription="Join us for worship services, community events, and fellowship opportunities at BGP."
+    pageUrl="https://bgpnc.com/events"
+    breadcrumbs={[
+      { name: "Home", url: "https://bgpnc.com/" },
+      { name: "Events", url: "https://bgpnc.com/events" }
+    ]}
+  />
   <!-- Hero Section -->
   <section class="events-hero">
     <div class="hero-overlay"></div>
@@ -101,7 +114,7 @@ const googleCalendarUrl = "https://calendar.google.com/calendar/embed?src=thebgp
           </div>
           <h3 class="category-title">Sunday Worship</h3>
           <p class="category-description">
-            Join us every Sunday at 12:30 PM for inspiring worship, powerful messages, and authentic community.
+            Join us every Sunday at 10:30 AM Eastern for inspiring worship, powerful messages, and authentic community.
           </p>
         </div>
 

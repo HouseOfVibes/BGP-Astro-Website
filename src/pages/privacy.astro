@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import SEO from '../components/SEO.astro';
+import WebPageSchema from '../components/schema/WebPageSchema.astro';
 ---
 
 <Layout>
@@ -9,6 +10,16 @@ import SEO from '../components/SEO.astro';
     title="Privacy Policy | Believers Gathering Place"
     description="Privacy policy for Believers Gathering Place website, explaining how we collect, use, and protect your personal information."
     url="https://bgpnc.com/privacy"
+  />
+  <WebPageSchema
+    slot="head"
+    pageName="Privacy Policy"
+    pageDescription="Privacy policy for Believers Gathering Place website."
+    pageUrl="https://bgpnc.com/privacy"
+    breadcrumbs={[
+      { name: "Home", url: "https://bgpnc.com/" },
+      { name: "Privacy Policy", url: "https://bgpnc.com/privacy" }
+    ]}
   />
 
   <main class="privacy-page">
@@ -153,7 +164,7 @@ import SEO from '../components/SEO.astro';
           <p>If you have any questions about this Privacy Policy or our privacy practices, please contact us:</p>
           <div class="contact-info">
             <p><strong>Believers Gathering Place</strong></p>
-            <p>1130 Shiloh Rd<br>Wendell, NC 27591</p>
+            <p>2305 Lake Wheeler Drive<br>Raleigh, NC</p>
             <p>Phone: <a href="tel:+19192302074">(919) 230-2074</a></p>
             <p>Email: <a href="mailto:contact@bgpnc.com">contact@bgpnc.com</a></p>
           </div>

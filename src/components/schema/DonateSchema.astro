@@ -1,0 +1,37 @@
+---
+// Donate Action Schema for BGP Give Page
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "DonateAction",
+  "recipient": {
+    "@type": "Church",
+    "@id": "https://bgpnc.com/#organization"
+  },
+  "description": "Support Believers Gathering Place through online giving, text to give, or mobile apps.",
+  "url": "https://bgpnc.com/give",
+  "actionOption": [
+    {
+      "@type": "PaymentMethod",
+      "name": "Text to Give",
+      "description": "Text any amount to +1 (919) 230-2074"
+    },
+    {
+      "@type": "PaymentMethod",
+      "name": "Online Giving",
+      "description": "Give securely through Tithe.ly or Givelify"
+    },
+    {
+      "@type": "PaymentMethod",
+      "name": "CashApp",
+      "description": "Send to $BGPchurch"
+    },
+    {
+      "@type": "PaymentMethod",
+      "name": "Zelle",
+      "description": "Send to thebgpnc@gmail.com"
+    }
+  ]
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

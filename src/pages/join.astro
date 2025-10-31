@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import WebPageSchema from '../components/schema/WebPageSchema.astro';
 
 const seoData = {
   title: "Join the BGP Family - Believer's Gathering Place",
@@ -9,6 +10,16 @@ const seoData = {
 ---
 
 <Layout {...seoData}>
+  <WebPageSchema
+    slot="head"
+    pageName="Join the BGP Family"
+    pageDescription="Discover your place in our community. Join the BGP family through membership, small groups, and new member classes."
+    pageUrl="https://bgpnc.com/join"
+    breadcrumbs={[
+      { name: "Home", url: "https://bgpnc.com/" },
+      { name: "Join", url: "https://bgpnc.com/join" }
+    ]}
+  />
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">

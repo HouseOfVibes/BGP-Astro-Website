@@ -1,0 +1,44 @@
+---
+// Generic WebPage Schema - can be used on any page
+interface Props {
+  pageName: string;
+  pageDescription: string;
+  pageUrl: string;
+  breadcrumbs?: Array<{ name: string; url: string }>;
+}
+
+const { pageName, pageDescription, pageUrl, breadcrumbs } = Astro.props;
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${pageUrl}#webpage`,
+  "url": pageUrl,
+  "name": pageName,
+  "description": pageDescription,
+  "isPartOf": {
+    "@id": "https://bgpnc.com/#website"
+  },
+  "about": {
+    "@id": "https://bgpnc.com/#organization"
+  },
+  "inLanguage": "en-US"
+};
+
+// Add breadcrumb schema if breadcrumbs are provided
+const breadcrumbSchema = breadcrumbs ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumbs.map((crumb, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": crumb.name,
+    "item": crumb.url
+  }))
+} : null;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
+{breadcrumbSchema && (
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+)}

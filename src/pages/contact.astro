@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import WebPageSchema from '../components/schema/WebPageSchema.astro';
 
 const seoData = {
   title: "Contact Us - Believer's Gathering Place",
@@ -9,6 +10,16 @@ const seoData = {
 ---
 
 <Layout {...seoData}>
+  <WebPageSchema
+    slot="head"
+    pageName="Contact Us"
+    pageDescription="Get in touch with Believers Gathering Place. Visit us at 2305 Lake Wheeler Drive, Raleigh. Sundays at 10:30 AM Eastern."
+    pageUrl="https://bgpnc.com/contact"
+    breadcrumbs={[
+      { name: "Home", url: "https://bgpnc.com/" },
+      { name: "Contact", url: "https://bgpnc.com/contact" }
+    ]}
+  />
   <section class="contact-section">
     <div class="contact-container">
       <!-- Section Header -->

@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import DonateSchema from '../components/schema/DonateSchema.astro';
+import WebPageSchema from '../components/schema/WebPageSchema.astro';
 
 const seoData = {
   title: "Give - Believer's Gathering Place",
@@ -9,6 +11,17 @@ const seoData = {
 ---
 
 <Layout {...seoData}>
+  <DonateSchema slot="head" />
+  <WebPageSchema
+    slot="head"
+    pageName="Give"
+    pageDescription="Support Believers Gathering Place through online giving, text to give, or mobile apps."
+    pageUrl="https://bgpnc.com/give"
+    breadcrumbs={[
+      { name: "Home", url: "https://bgpnc.com/" },
+      { name: "Give", url: "https://bgpnc.com/give" }
+    ]}
+  />
   <!-- Ways to Give Widget -->
   <section class="giving-section">
     <div class="giving-widget">

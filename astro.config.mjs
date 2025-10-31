@@ -22,7 +22,18 @@ export default defineConfig({
   integrations: [
     sitemap({
       // Customize sitemap generation
-      // filter: (page) => page !== 'https://example.com/secret-page',
+      filter: (page) => !page.includes('/newsletter-thank-you') && !page.includes('/contact-thank-you'),
+      changefreq: 'weekly',
+      priority: 0.7,
+      lastmod: new Date(),
+      customPages: [
+        'https://bgpnc.com/',
+        'https://bgpnc.com/join',
+        'https://bgpnc.com/give',
+        'https://bgpnc.com/events',
+        'https://bgpnc.com/contact',
+        'https://bgpnc.com/privacy',
+      ],
     }),
   ],
 

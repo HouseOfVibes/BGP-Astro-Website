@@ -1,0 +1,43 @@
+---
+// Event Schema for BGP - Weekly Sunday Service
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "EventSeries",
+  "name": "Sunday Worship Service",
+  "description": "Join us every Sunday at 10:30 AM Eastern for inspiring worship, powerful messages, and authentic community.",
+  "organizer": {
+    "@type": "Church",
+    "@id": "https://bgpnc.com/#organization"
+  },
+  "location": {
+    "@type": "Place",
+    "name": "Believers Gathering Place",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2305 Lake Wheeler Drive",
+      "addressLocality": "Raleigh",
+      "addressRegion": "NC",
+      "postalCode": "27603",
+      "addressCountry": "US"
+    }
+  },
+  "startDate": "2025-11-02",
+  "endDate": "2026-12-31",
+  "eventSchedule": {
+    "@type": "Schedule",
+    "byDay": "Sunday",
+    "startTime": "10:30:00-05:00",
+    "endTime": "12:00:00-05:00",
+    "scheduleTimezone": "America/New_York"
+  },
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "isAccessibleForFree": true,
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "General Public"
+  }
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

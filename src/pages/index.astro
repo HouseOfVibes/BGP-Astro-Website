@@ -6,15 +6,17 @@ import Values from '../components/home/Values.astro';
 import ScriptureMonth from '../components/home/ScriptureMonth.astro';
 import Leadership from '../components/home/Leadership.astro';
 import ConnectWithUs from '../components/home/ConnectWithUs.astro';
+import OrganizationSchema from '../components/schema/OrganizationSchema.astro';
 
 const seoData = {
   title: "Believer's Gathering Place - A Place to Belong, Believe, and Become",
-  description: "Join our community where faith grows, love thrives, and lives are transformed. Sunday services at 12:30 PM in Wendell, NC.",
+  description: "Join our community where faith grows, love thrives, and lives are transformed. Sunday services at 10:30 AM Eastern in Raleigh, NC.",
   image: "/images/bgp-og-image.jpg?v=3",
 };
 ---
 
 <Layout {...seoData}>
+  <OrganizationSchema slot="head" />
   <Hero />
   <ServiceInfo />
   <ScriptureMonth />
