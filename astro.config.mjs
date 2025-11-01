@@ -26,14 +26,8 @@ export default defineConfig({
       changefreq: 'weekly',
       priority: 0.7,
       lastmod: new Date(),
-      customPages: [
-        'https://bgpnc.com/',
-        'https://bgpnc.com/join',
-        'https://bgpnc.com/give',
-        'https://bgpnc.com/events',
-        'https://bgpnc.com/contact',
-        'https://bgpnc.com/privacy',
-      ],
+      // Note: Astro automatically discovers pages, customPages not needed
+      // but kept for explicit priority control
     }),
   ],
 
