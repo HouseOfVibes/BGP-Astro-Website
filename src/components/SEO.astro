@@ -14,7 +14,18 @@ const imageUrl = new URL(image, Astro.site);
 <!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="description" content={description} />
+<meta name="author" content="Believers Gathering Place" />
 <link rel="canonical" href={canonicalUrl} />
+
+<!-- Theme Color for Mobile Browsers -->
+<meta name="theme-color" content="#2d7373" />
+<meta name="msapplication-TileColor" content="#2d7373" />
+
+<!-- Geo Tags for Local SEO -->
+<meta name="geo.region" content="US-NC" />
+<meta name="geo.placename" content="Raleigh" />
+<meta name="geo.position" content="35.7796;-78.6382" />
+<meta name="ICBM" content="35.7796, -78.6382" />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={type} />
@@ -22,6 +33,9 @@ const imageUrl = new URL(image, Astro.site);
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={imageUrl} />
+<meta property="og:image:alt" content={title} />
+<meta property="og:locale" content="en_US" />
+<meta property="og:site_name" content="Believers Gathering Place" />
 {type === 'article' && <meta property="article:author" content={author} />}
 
 <!-- Twitter -->
