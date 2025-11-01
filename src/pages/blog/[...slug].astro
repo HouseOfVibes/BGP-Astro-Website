@@ -1,0 +1,454 @@
+---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import WebPageSchema from '../../components/schema/WebPageSchema.astro';
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<'blog'>;
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const seoData = {
+  title: `${entry.data.title} | BGP Blog`,
+  description: entry.data.description,
+  image: entry.data.image || '/images/bgp-og-image.jpg?v=3',
+  type: 'article',
+  author: entry.data.author,
+};
+
+function formatDate(date: Date): string {
+  return new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }).format(date);
+}
+---
+
+<Layout {...seoData}>
+  <!-- Article Schema -->
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": entry.data.title,
+    "description": entry.data.description,
+    "image": entry.data.image ? `https://bgpnc.com${entry.data.image}` : "https://bgpnc.com/images/bgp-og-image.jpg",
+    "author": {
+      "@type": "Person",
+      "name": entry.data.author
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Believers Gathering Place",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://bgpnc.com/images/logo.png"
+      }
+    },
+    "datePublished": entry.data.pubDate.toISOString(),
+    "dateModified": entry.data.pubDate.toISOString(),
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://bgpnc.com/blog/${entry.slug}`
+    }
+  })} />
+
+  <WebPageSchema
+    slot="head"
+    pageName={entry.data.title}
+    pageDescription={entry.data.description}
+    pageUrl={`https://bgpnc.com/blog/${entry.slug}`}
+    breadcrumbs={[
+      { name: "Home", url: "https://bgpnc.com/" },
+      { name: "Blog", url: "https://bgpnc.com/blog" },
+      { name: entry.data.title, url: `https://bgpnc.com/blog/${entry.slug}` }
+    ]}
+  />
+
+  <article class="blog-post">
+    <div class="post-container">
+      <!-- Post Header -->
+      <header class="post-header">
+        <a href="/blog" class="back-link">
+          ← Back to Blog
+        </a>
+
+        {entry.data.series && (
+          <span class="post-series">{entry.data.series}</span>
+        )}
+
+        <h1 class="post-title">{entry.data.title}</h1>
+
+        <div class="post-meta">
+          <span class="post-author">By {entry.data.author}</span>
+          <span class="separator">•</span>
+          <time datetime={entry.data.pubDate.toISOString()} class="post-date">
+            {formatDate(entry.data.pubDate)}
+          </time>
+        </div>
+
+        {entry.data.tags && entry.data.tags.length > 0 && (
+          <div class="post-tags">
+            {entry.data.tags.map((tag) => (
+              <span class="tag">{tag}</span>
+            ))}
+          </div>
+        )}
+      </header>
+
+      <!-- Featured Image -->
+      {entry.data.image && (
+        <div class="featured-image">
+          <img
+            src={entry.data.image}
+            alt={entry.data.title}
+          />
+        </div>
+      )}
+
+      <!-- Post Content -->
+      <div class="post-content prose">
+        <Content />
+      </div>
+
+      <!-- Post Footer -->
+      <footer class="post-footer">
+        <div class="cta-section">
+          <h3>Join Us This Sunday</h3>
+          <p>Experience worship, biblical teaching, and authentic community at BGP.</p>
+          <div class="cta-buttons">
+            <a href="/#service-info" class="btn-primary">Service Times</a>
+            <a href="/contact" class="btn-secondary">Contact Us</a>
+          </div>
+        </div>
+
+        <a href="/blog" class="back-to-blog">
+          ← Back to All Posts
+        </a>
+      </footer>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .blog-post {
+    min-height: calc(100vh - 200px);
+    padding: 3rem 1.5rem;
+    background: linear-gradient(to bottom, #f9fafb 0%, white 100%);
+  }
+
+  .post-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 16px;
+    padding: 3rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Post Header */
+  .post-header {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid #e5e7eb;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-teal-dark);
+    text-decoration: none;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    transition: color 0.3s ease;
+  }
+
+  .back-link:hover {
+    color: var(--color-gold);
+  }
+
+  .post-series {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+  }
+
+  .post-title {
+    font-family: var(--font-family-secondary);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--color-primary-dark);
+    margin-bottom: 1.5rem;
+  }
+
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .separator {
+    color: #d1d5db;
+  }
+
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 0.375rem 0.875rem;
+    background: #f3f4f6;
+    color: var(--color-text-dark);
+    font-size: 0.8125rem;
+    border-radius: 20px;
+  }
+
+  /* Featured Image */
+  .featured-image {
+    margin-bottom: 3rem;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .featured-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Post Content - Prose Styles */
+  .post-content {
+    font-family: var(--font-family-primary);
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-text-dark);
+  }
+
+  .prose :global(h2) {
+    font-family: var(--font-family-secondary);
+    font-size: 1.875rem;
+    font-weight: 300;
+    color: var(--color-primary-dark);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+
+  .prose :global(h3) {
+    font-family: var(--font-family-secondary);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--color-teal-dark);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .prose :global(h4) {
+    font-family: var(--font-family-secondary);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--color-primary-dark);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .prose :global(p) {
+    margin-bottom: 1.5rem;
+  }
+
+  .prose :global(blockquote) {
+    border-left: 4px solid var(--color-gold);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: var(--color-text-dark);
+    background: #f9fafb;
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+
+  .prose :global(blockquote p) {
+    margin-bottom: 0;
+    font-size: 1.25rem;
+    line-height: 1.7;
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin: 1.5rem 0;
+    padding-left: 2rem;
+  }
+
+  .prose :global(li) {
+    margin-bottom: 0.75rem;
+  }
+
+  .prose :global(strong) {
+    font-weight: 600;
+    color: var(--color-primary-dark);
+  }
+
+  .prose :global(em) {
+    font-style: italic;
+    color: var(--color-teal-dark);
+  }
+
+  .prose :global(a) {
+    color: var(--color-teal-dark);
+    text-decoration: underline;
+    transition: color 0.3s ease;
+  }
+
+  .prose :global(a:hover) {
+    color: var(--color-gold);
+  }
+
+  .prose :global(hr) {
+    border: none;
+    border-top: 2px solid #e5e7eb;
+    margin: 3rem 0;
+  }
+
+  /* Post Footer */
+  .post-footer {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 2px solid #e5e7eb;
+  }
+
+  .cta-section {
+    text-align: center;
+    background: linear-gradient(135deg, var(--color-teal-dark), var(--color-teal-mid));
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    color: white;
+    margin-bottom: 2rem;
+  }
+
+  .cta-section h3 {
+    font-family: var(--font-family-secondary);
+    font-size: 1.875rem;
+    font-weight: 300;
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-section p {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    display: inline-block;
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary {
+    background: var(--color-gold);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: var(--color-gold-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(156, 128, 64, 0.3);
+  }
+
+  .btn-secondary {
+    background: white;
+    color: var(--color-teal-dark);
+  }
+
+  .btn-secondary:hover {
+    background: #f3f4f6;
+    transform: translateY(-2px);
+  }
+
+  .back-to-blog {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-teal-dark);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+  }
+
+  .back-to-blog:hover {
+    color: var(--color-gold);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .blog-post {
+      padding: 2rem 1rem;
+    }
+
+    .post-container {
+      padding: 2rem 1.5rem;
+    }
+
+    .post-title {
+      font-size: 1.75rem;
+    }
+
+    .post-content {
+      font-size: 1rem;
+    }
+
+    .prose :global(h2) {
+      font-size: 1.5rem;
+    }
+
+    .prose :global(h3) {
+      font-size: 1.25rem;
+    }
+
+    .cta-section {
+      padding: 2rem 1.5rem;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      width: 100%;
+    }
+  }
+</style>
