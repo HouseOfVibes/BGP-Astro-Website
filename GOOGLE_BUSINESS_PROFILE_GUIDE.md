@@ -221,7 +221,7 @@ Believers Gathering Place
 Thank you for sharing your feedback, [Name]. We're
 sorry to hear about your experience. We'd love to
 discuss this further and make it right. Please contact
-us at contact@bgpnc.com or call (919) 230-2074.
+us at info@bgpnc.com or call (919) 230-2074.
 
 We're committed to growing and improving.
 

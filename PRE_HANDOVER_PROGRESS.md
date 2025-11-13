@@ -93,7 +93,7 @@
 - **Current Address:** 2305 Lake Wheeler Drive, Raleigh, NC 27603
 - **Service Time:** Sundays 10:30 AM Eastern
 - **Phone:** +1-919-230-2074
-- **Email:** contact@bgpnc.com
+- **Email:** info@bgpnc.com
 - **Status:** Internally consistent across site
 - **Note:** Social media handles reference "WendellNC" (legacy naming - church may have moved)
 - **Action Required:** Verify with client if this is correct or if Wendell location is still active

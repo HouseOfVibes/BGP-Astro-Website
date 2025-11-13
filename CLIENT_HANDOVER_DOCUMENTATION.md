@@ -66,8 +66,8 @@ Your website consists of the following pages:
 ### Email Services
 
 **FormSubmit.co (Contact Forms):**
-- **Contact Form:** contact@bgpnc.com
-- **Newsletter:** newsletter@bgpnc.com
+- **Contact Form:** info@bgpnc.com
+- **Newsletter:** info@bgpnc.com
 - No login required - emails sent directly to these addresses
 
 ### Analytics
