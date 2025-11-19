@@ -53,10 +53,10 @@ const seoData = {
             <i class="fas fa-clock"></i>
             Sunday Service: 10:30 AM Eastern
           </p>
-          <a href="tel:+19192302074" class="phone-link">
-            <i class="fas fa-phone"></i>
-            (919) 230-2074
-          </a>
+          <p class="email-info">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:info@bgpnc.com" class="email-link">info@bgpnc.com</a>
+          </p>
         </div>
       </div>
 
@@ -222,12 +222,22 @@ const seoData = {
     font-size: 1.25rem;
   }
 
-  .phone-link {
+  .email-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+    color: var(--color-text-dark);
+    margin: 0;
+  }
+
+  .email-link {
     text-decoration: none;
+    color: var(--color-text-dark);
     transition: all 0.3s ease;
   }
 
-  .phone-link:hover {
+  .email-link:hover {
     color: var(--color-gold);
     transform: translateX(3px);
   }

@@ -211,9 +211,10 @@ Your official church information:
 ```
 Name: Believers Gathering Place
 Address: 2305 Lake Wheeler Drive, Raleigh, NC 27603
-Phone: (919) 230-2074
+Email: info@bgpnc.com
 Website: https://bgpnc.com
 Service Time: Sundays at 10:30 AM Eastern
+Phone: (919) 230-2074 (text-to-give only, not for general contact)
 ```
 
 **This MUST be identical on:**
@@ -222,6 +223,8 @@ Service Time: Sundays at 10:30 AM Eastern
 - ✅ Facebook Page
 - ✅ Instagram Profile
 - ✅ All church directories (Yelp, YellowPages, etc.)
+
+**Note:** Phone number is only displayed on the Give page for text-to-give donations. All general inquiries should be directed to info@bgpnc.com.
 
 ### Social Media Integration
 
