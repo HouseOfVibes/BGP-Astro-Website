@@ -76,6 +76,7 @@ Define the areas you serve:
 ```
 +1 (919) 230-2074
 ```
+**Note:** This number is for text-to-give donations only. For general inquiries, direct visitors to info@bgpnc.com
 Make this clickable for mobile users
 
 #### **Website**
@@ -221,7 +222,7 @@ Believers Gathering Place
 Thank you for sharing your feedback, [Name]. We're
 sorry to hear about your experience. We'd love to
 discuss this further and make it right. Please contact
-us at contact@bgpnc.com or call (919) 230-2074.
+us at info@bgpnc.com.
 
 We're committed to growing and improving.
 
@@ -492,9 +493,10 @@ NAP (Name, Address, Phone) must be **100% identical** across:
 ```
 Name: Believers Gathering Place
 Address: 2305 Lake Wheeler Drive, Raleigh, NC 27603
-Phone: (919) 230-2074
+Email: info@bgpnc.com
 Website: https://bgpnc.com
 Service Time: Sundays at 10:30 AM Eastern
+Phone: (919) 230-2074 (text-to-give only, not for general contact)
 ```
 
 ---

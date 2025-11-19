@@ -92,11 +92,11 @@
 ### NAP Consistency Verification
 - **Current Address:** 2305 Lake Wheeler Drive, Raleigh, NC 27603
 - **Service Time:** Sundays 10:30 AM Eastern
-- **Phone:** +1-919-230-2074
-- **Email:** contact@bgpnc.com
+- **Phone:** Not listed (only available for text-to-give: +1-919-230-2074)
+- **Email:** info@bgpnc.com
 - **Status:** Internally consistent across site
-- **Note:** Social media handles reference "WendellNC" (legacy naming - church may have moved)
-- **Action Required:** Verify with client if this is correct or if Wendell location is still active
+- **Note:** Phone number removed from general contact info; only shown for text-to-give functionality on Give page
+- **Social Media:** Handles reference "WendellNC" (legacy naming)
 
 ### SSL/HTTPS Configuration
 - **Status:** Needs verification

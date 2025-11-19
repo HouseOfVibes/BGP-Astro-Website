@@ -77,7 +77,7 @@ Complete rebuild of the BGP homepage using Astro v5 and Tailwind CSS v4. All sec
        - Event Invitations
        - Inspirational Content
    - **Right Panel (Form):**
-     - FormSubmit.co integration (newsletter@bgpnc.com)
+     - FormSubmit.co integration (info@bgpnc.com)
      - Fields: Full Name (required), Email (required), Phone (optional)
      - Honeypot spam protection
      - Thank you page redirect
@@ -265,7 +265,7 @@ const seoData = {
 
 ### Newsletter Form *(Updated)*
 - **Service:** FormSubmit.co
-- **Action:** https://formsubmit.co/newsletter@bgpnc.com
+- **Action:** https://formsubmit.co/info@bgpnc.com
 - **Method:** POST
 - **Redirect:** /newsletter-thank-you page
 - **Captcha:** Disabled (_captcha: false)
