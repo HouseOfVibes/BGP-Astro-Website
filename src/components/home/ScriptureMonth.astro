@@ -1,7 +1,25 @@
 ---
 // Scripture of the Month Component
+// Edit src/content/scripture.json to update the monthly scripture
+import scriptureData from '../../content/scripture.json';
+
 const currentDate = new Date();
 const currentMonth = currentDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+
+// Process the verse text with highlights
+function formatVerse(verse: string, highlights: string[]): string {
+  let formattedVerse = verse;
+  highlights.forEach(highlight => {
+    formattedVerse = formattedVerse.replace(
+      highlight,
+      `<span class="highlight">${highlight}</span>`
+    );
+  });
+  // Convert newlines to <br> tags
+  return formattedVerse.replace(/\n/g, '<br>');
+}
+
+const formattedVerse = formatVerse(scriptureData.verse, scriptureData.highlights);
 ---
 
 <section class="scripture-section" id="scripture">
@@ -28,17 +46,12 @@ const currentMonth = currentDate.toLocaleDateString('en-US', { month: 'long', ye
       <!-- Scripture Verse -->
       <div class="verse-wrapper">
         <blockquote class="verse-text">
-          "For unto us a <span class="highlight">Child is born</span>,<br>
-          Unto us a <span class="highlight">Son is given</span>;<br>
-          And the government will be upon His shoulder.<br>
-          And His name will be called<br>
-          <span class="highlight">Wonderful, Counselor, Mighty God</span>,<br>
-          <span class="highlight">Everlasting Father, Prince of Peace</span>."
+          "<Fragment set:html={formattedVerse} />"
         </blockquote>
 
         <!-- Reference -->
         <cite class="verse-reference">
-          — Isaiah 9:6 (NKJV)
+          — {scriptureData.reference} ({scriptureData.translation})
         </cite>
       </div>
     </div>

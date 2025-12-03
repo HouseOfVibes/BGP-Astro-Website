@@ -184,6 +184,17 @@
     box-shadow: 0 15px 25px -5px rgba(156, 128, 64, 0.4);
   }
 
+  .submit-button:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 4px;
+  }
+
+  .email-input:focus-visible {
+    outline: none;
+    border-color: var(--color-teal-mid);
+    box-shadow: 0 0 0 3px rgba(45, 115, 115, 0.3);
+  }
+
   @media (max-width: 640px) {
     .submit-button {
       width: 100%;
@@ -228,6 +239,11 @@
   .social-button:hover {
     background-color: var(--color-teal-mid);
     transform: scale(1.1);
+  }
+
+  .social-button:focus-visible {
+    outline: 2px solid var(--color-teal-mid);
+    outline-offset: 4px;
   }
 
   .social-button i {
