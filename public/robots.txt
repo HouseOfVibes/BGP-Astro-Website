@@ -8,6 +8,5 @@ Allow: /
 Disallow: /newsletter-thank-you
 Disallow: /contact-thank-you
 
-# Sitemap location
+# Sitemap location (index file contains references to all sitemaps)
 Sitemap: https://bgpnc.com/sitemap-index.xml
-Sitemap: https://bgpnc.com/sitemap-0.xml
