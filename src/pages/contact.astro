@@ -5,7 +5,7 @@ import WebPageSchema from '../components/schema/WebPageSchema.astro';
 const seoData = {
   title: "Contact Us - Believer's Gathering Place",
   description: "Get in touch with BGP. We'd love to hear from you and answer any questions you may have.",
-  image: "/images/bgp-og-image.jpg?v=3",
+  image: "/images/bgp-og-image.jpg",
 };
 ---
 
@@ -70,7 +70,7 @@ const seoData = {
           <!-- Honeypot -->
           <input type="text" name="_honey" style="display:none">
 
-          <!-- Disable Captcha -->
+          <!-- Enable Captcha for spam protection -->
           <input type="hidden" name="_captcha" value="true">
 
           <!-- Success Page -->
