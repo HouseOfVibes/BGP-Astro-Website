@@ -6,7 +6,7 @@ import WebPageSchema from '../components/schema/WebPageSchema.astro';
 const seoData = {
   title: "Give - Believer's Gathering Place",
   description: "Support BGP through various giving methods including Tithe.ly, Givelify, CashApp, Zelle, and text to give.",
-  image: "/images/bgp-og-image.jpg?v=3",
+  image: "/images/bgp-og-image.jpg",
 };
 ---
 
@@ -359,9 +359,8 @@ const seoData = {
           setTimeout(function() {
             notification.classList.remove('show');
           }, 2500);
-        }).catch(function(err) {
-          // Fallback for older browsers
-          console.error('Failed to copy: ', err);
+        }).catch(function() {
+          // Fallback for older browsers - show alert with copyable text
           alert(message + '\n' + text);
         });
       });
