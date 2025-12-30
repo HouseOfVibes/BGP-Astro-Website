@@ -1,8 +1,12 @@
 ---
 // Hero Component
+import { getImage } from 'astro:assets';
+import heroBgImage from '../../assets/images/hero-bg.jpg';
+
+const optimizedBg = await getImage({ src: heroBgImage, format: 'webp', quality: 80 });
 ---
 
-<section class="hero-section">
+<section class="hero-section" style={`background-image: url('${optimizedBg.src}')`}>
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
@@ -36,7 +40,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('/images/hero-bg.jpg');
     background-size: 200% auto;
     background-position: center 0%;
     background-repeat: no-repeat;

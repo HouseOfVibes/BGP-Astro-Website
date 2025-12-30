@@ -1,5 +1,7 @@
 ---
 // Footer Component
+import { Picture } from 'astro:assets';
+import logoImage from '../assets/images/BGP-(400x400px)-website header.png';
 ---
 
 <footer class="site-footer" role="contentinfo">
@@ -9,7 +11,14 @@
       <!-- Brand Column -->
       <div class="footer-column footer-brand">
         <div class="footer-logo">
-          <img src="/images/BGP-(400x400px)-website header.png" alt="Believers Gathering Place Logo" class="logo-image" />
+          <Picture
+            src={logoImage}
+            formats={['webp', 'png']}
+            alt="Believers Gathering Place Logo"
+            class="logo-image"
+            width={80}
+            height={80}
+          />
         </div>
         <p class="footer-tagline">Believe. Connect. Grow.</p>
 
@@ -49,7 +58,7 @@
         <p class="newsletter-text">Subscribe to our newsletter for updates</p>
 
         <form
-          action="https://formsubmit.co/info@bgpnc.com"
+          action="https://formsubmit.co/300887f65748d0ad8e8a86636cf5f6df"
           method="POST"
           class="footer-newsletter-form"
         >

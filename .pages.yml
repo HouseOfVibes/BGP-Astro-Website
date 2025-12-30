@@ -1,0 +1,43 @@
+media:
+  input: public/images
+  output: /images
+
+content:
+  - name: blog
+    label: Blog Posts
+    path: src/content/blog
+    type: collection
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: description
+        label: Description
+        type: text
+        required: true
+      - name: pubDate
+        label: Publish Date
+        type: date
+        required: true
+      - name: author
+        label: Author
+        type: string
+        default: Pastor Mark Smith
+      - name: image
+        label: Featured Image
+        type: image
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+        default:
+          - Faith
+          - Community
+      - name: series
+        label: Series
+        type: string
+        description: Optional series name (e.g., 'Scripture of the Month')
+      - name: body
+        label: Content
+        type: rich-text

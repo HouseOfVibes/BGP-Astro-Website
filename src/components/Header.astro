@@ -1,5 +1,7 @@
 ---
 // Header Component with Navigation
+import { Picture } from 'astro:assets';
+import logoImage from '../assets/images/BGP-(400x400px)-website header.png';
 ---
 
 <header class="site-header" role="banner">
@@ -7,7 +9,14 @@
     <!-- Logo -->
     <div class="logo">
       <a href="/" class="logo-link" aria-label="BGP Home">
-        <img src="/images/BGP-(400x400px)-website header.png" alt="Believers Gathering Place Logo" class="logo-image" />
+        <Picture
+          src={logoImage}
+          formats={['webp', 'png']}
+          alt="Believers Gathering Place Logo"
+          class="logo-image"
+          width={60}
+          height={60}
+        />
         <span class="logo-text" aria-hidden="true">Believers Gathering Place</span>
       </a>
     </div>

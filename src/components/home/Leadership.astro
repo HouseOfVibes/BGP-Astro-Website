@@ -1,5 +1,8 @@
 ---
 // Leadership Component
+import { Picture } from 'astro:assets';
+import pastorMarkImage from '../../assets/images/pastor-mark.jpg';
+import ladyQImage from '../../assets/images/lady-q.jpg';
 ---
 
 <section class="leadership-section" id="leadership">
@@ -14,12 +17,12 @@
       <!-- Pastor Mark Smith -->
       <div class="leader-item">
         <div class="leader-image-wrapper">
-          <img
-            src="/images/pastor-mark.jpg"
+          <Picture
+            src={pastorMarkImage}
+            formats={['webp', 'jpg']}
             alt="Pastor Mark Smith, Senior Pastor of Believers Gathering Place Church in Raleigh, NC"
             class="leader-image"
-            width="1707"
-            height="2560"
+            width={300}
             loading="lazy"
           />
         </div>
@@ -43,12 +46,12 @@
       <!-- Pastor Mark and Lady LaQuadia Smith -->
       <div class="leader-item">
         <div class="leader-image-wrapper">
-          <img
-            src="/images/lady-q.jpg"
+          <Picture
+            src={ladyQImage}
+            formats={['webp', 'jpg']}
             alt="Pastor Mark Smith and Lady LaQuadia Smith, ministry leaders at Believers Gathering Place"
             class="leader-image"
-            width="1215"
-            height="1745"
+            width={300}
             loading="lazy"
           />
         </div>
